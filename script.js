@@ -234,4 +234,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('🌍 Jimmy Adams — Personal page loaded successfully');
 });
-});
+
