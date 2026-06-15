@@ -118,6 +118,120 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.innerHTML = `© ${currentYear} — The world is worth exploring`;
   }
 
-  // ---- Active nav tracking (if nav is added later) ----
+  // ---- Travel Map ----
+  if (typeof TRAVEL_DATA !== 'undefined' && document.getElementById('travel-map-container')) {
+    // Initialize Leaflet map
+    const map = L.map('travel-map-container', {
+      scrollWheelZoom: false,
+      zoomControl: true
+    }).setView([25, 10], 2);
+
+    // Use a beautiful free tile layer — CartoDB Voyager
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Add markers
+    const markers = [];
+    const pathCoords = [];
+
+    TRAVEL_DATA.forEach((place, index) => {
+      // Custom icon with emoji
+      const icon = L.divIcon({
+        className: '',
+        html: `<div class="custom-marker">${place.emoji}</div>`,
+        iconSize: [36, 36],
+        iconAnchor: [18, 18],
+        popupAnchor: [0, -20]
+      });
+
+      // Popup content
+      const popupContent = `
+        <div class="popup-card">
+          <img src="${place.photo}" alt="${place.city}" class="popup-photo" loading="lazy" onerror="this.style.display='none'">
+          <div class="popup-body">
+            <div class="popup-header">
+              <span class="popup-emoji">${place.emoji}</span>
+              <span class="popup-city">${place.city}</span>
+            </div>
+            <div class="popup-country">${place.country}</div>
+            <div class="popup-date">${place.date}</div>
+            <p class="popup-story">${place.story}</p>
+          </div>
+        </div>
+      `;
+
+      const marker = L.marker([place.lat, place.lng], { icon })
+        .addTo(map)
+        .bindPopup(popupContent, {
+          maxWidth: 300,
+          closeButton: true,
+          className: 'custom-popup'
+        });
+
+      markers.push(marker);
+      pathCoords.push([place.lat, place.lng]);
+    });
+
+    // Draw travel path with animated dashed line
+    if (pathCoords.length > 1) {
+      L.polyline(pathCoords, {
+        color: '#C87941',
+        weight: 2,
+        opacity: 0.5,
+        dashArray: '12 6',
+        className: 'travel-path'
+      }).addTo(map);
+    }
+
+    // Fit map to show all markers
+    if (markers.length > 0) {
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.2));
+    }
+
+    // Animate stats numbers
+    const totalKm = calculateTotalDistance();
+    const countries = countCountries();
+    const cities = TRAVEL_DATA.length;
+
+    animateNumber('stat-countries', countries);
+    animateNumber('stat-cities', cities);
+    animateNumber('stat-km', totalKm);
+
+    // Fix map rendering after scroll reveal
+    const mapObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => map.invalidateSize(), 300);
+          mapObserver.unobserve(entry.target);
+        }
+      });
+    });
+    mapObserver.observe(document.getElementById('travel-map-container'));
+  }
+
+  // ---- Number Animation ----
+  function animateNumber(elementId, target) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    let current = 0;
+    const duration = 1500;
+    const step = target / (duration / 16);
+
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(interval);
+      }
+      el.textContent = Math.round(current).toLocaleString();
+    }, 16);
+  }
+
   console.log('🌍 Jimmy Adams — Personal page loaded successfully');
+});
 });

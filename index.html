@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Leaflet.js for interactive travel map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -121,6 +123,30 @@
     </div>
   </section>
 
+  <!-- Travel Map Section -->
+  <section class="section travel-map" id="travel-map">
+    <div class="container">
+      <div class="section-label">Footprints</div>
+      <h2 class="section-title">My travel map</h2>
+      <p class="map-subtitle">Every pin is a story — click to explore</p>
+      <div class="map-stats">
+        <div class="stat">
+          <span class="stat-number" id="stat-countries">0</span>
+          <span class="stat-label">Countries</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="stat-cities">0</span>
+          <span class="stat-label">Cities</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="stat-km">0</span>
+          <span class="stat-label">km traveled</span>
+        </div>
+      </div>
+      <div id="travel-map-container"></div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section class="section contact" id="contact">
     <div class="container">
@@ -158,6 +184,8 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="travel-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
