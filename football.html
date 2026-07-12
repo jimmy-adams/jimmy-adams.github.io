@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="fb-body">
 
@@ -198,6 +199,25 @@
     </div>
   </section>
 
+  <!-- Stadiums -->
+  <section class="fb-section fb-stadiums" id="stadiums">
+    <div class="fb-container">
+      <div class="fb-section-header">
+        <h2 class="fb-section-title">Stadiums I Follow</h2>
+        <span class="fb-section-count" id="stadium-count"></span>
+      </div>
+
+      <!-- Stadium map -->
+      <div id="stadium-map"></div>
+
+      <!-- Visited linkage -->
+      <div class="fb-stadium-linkage" id="stadium-linkage"></div>
+
+      <!-- Cards grid -->
+      <div class="fb-stadiums-grid" id="stadiums-grid"></div>
+    </div>
+  </section>
+
   <!-- Official Links Footer -->
   <section class="fb-section fb-official">
     <div class="fb-container">
@@ -225,6 +245,8 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="stadiums.js"></script>
   <script src="football.js"></script>
 </body>
 </html>
