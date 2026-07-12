@@ -1,0 +1,510 @@
+/* ============================================
+   Football Hub — Jimmy Adams
+   Pitch-green + league brand colors
+   ============================================ */
+
+:root {
+  --fb-navy:    #0B1D3A;
+  --fb-navy2:   #0F2847;
+  --fb-green:   #1F9D55;
+  --fb-green-d: #157A40;
+  --fb-green-l: #2EC27E;
+  --fb-white:   #FFFFFF;
+  --fb-gray:    #A0AEC0;
+  --fb-gray-dk: #4A5568;
+  --fb-bg:      #F1F7F2;
+  --fb-card:    #FFFFFF;
+  --fb-shadow:  rgba(11,29,58,0.08);
+  --fb-radius:  10px;
+  --fb-font:    'Inter', -apple-system, sans-serif;
+  --fb-font-cond: 'Roboto Condensed', 'Inter', sans-serif;
+}
+
+.fb-body {
+  font-family: var(--fb-font);
+  background: var(--fb-bg);
+  color: var(--fb-navy);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.fb-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Top Nav ---- */
+.fb-topbar {
+  background: var(--fb-navy);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.fb-topbar-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+}
+
+.fb-topbar-logo {
+  font-family: var(--fb-font-cond);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--fb-green-l);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.fb-topbar-links { display: flex; gap: 4px; align-items: center; }
+
+.fb-topbar-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fb-white);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+}
+
+.fb-topbar-link:hover { background: var(--fb-navy2); }
+.fb-topbar-back { color: var(--fb-green-l); margin-left: 8px; }
+
+/* ---- Hero (pitch) ---- */
+.fb-hero {
+  position: relative;
+  background: var(--fb-navy);
+  overflow: hidden;
+}
+
+.fb-hero-pitch {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(31,157,85,0.18) 0%, transparent 50%),
+    radial-gradient(circle at 50% 120%, rgba(46,194,126,0.25), transparent 60%),
+    var(--fb-navy);
+}
+
+.fb-hero-pitch::before {
+  /* pitch stripes */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 60px,
+    transparent 60px,
+    transparent 120px
+  );
+}
+
+.fb-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 90px 24px 70px;
+  text-align: center;
+}
+
+.fb-hero-badge {
+  display: inline-block;
+  background: var(--fb-green-l);
+  color: var(--fb-navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+}
+
+.fb-hero-title {
+  font-family: var(--fb-font-cond);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--fb-white);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.fb-hero-sub {
+  font-size: 1.1rem;
+  color: var(--fb-gray);
+  font-weight: 300;
+}
+
+.fb-hero-bottom { background: var(--fb-green); padding: 8px 24px; }
+
+.fb-hero-ticker {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fb-ticker-live {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  animation: fbPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes fbPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+.fb-ticker-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fb-navy);
+}
+
+/* ---- Sections ---- */
+.fb-section { padding: 48px 0; }
+
+.fb-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--fb-green);
+}
+
+.fb-section-title {
+  font-family: var(--fb-font-cond);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fb-navy);
+}
+
+.fb-section-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fb-green-d);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.fb-section-link:hover { color: var(--fb-navy); }
+
+/* ---- Leagues Grid ---- */
+.fb-leagues { background: var(--fb-bg); }
+
+.fb-leagues-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.fb-league-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--fb-card);
+  border-radius: var(--fb-radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--fb-navy);
+  box-shadow: 0 2px 8px var(--fb-shadow);
+  border-top: 5px solid var(--league);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fb-league-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.fb-league-badge {
+  font-family: var(--fb-font-cond);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--league);
+  padding: 14px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.fb-league-body { padding: 14px 14px 8px; flex: 1; }
+
+.fb-league-body h3 {
+  font-family: var(--fb-font-cond);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.fb-league-country {
+  font-size: 0.8rem;
+  color: var(--fb-gray-dk);
+  margin-bottom: 2px;
+}
+
+.fb-league-note {
+  font-size: 0.75rem;
+  color: var(--fb-gray);
+}
+
+.fb-league-go {
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--league);
+  border-top: 1px solid #EDF2F7;
+  text-align: right;
+  transition: background 0.2s;
+}
+
+.fb-league-card:hover .fb-league-go { background: var(--league); color: #fff; }
+
+/* ---- Teams Track ---- */
+.fb-teams { background: var(--fb-white); }
+
+.fb-teams-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fb-green) var(--fb-bg);
+}
+
+.fb-teams-track::-webkit-scrollbar { height: 4px; }
+.fb-teams-track::-webkit-scrollbar-track { background: var(--fb-bg); border-radius: 2px; }
+.fb-teams-track::-webkit-scrollbar-thumb { background: var(--fb-green); border-radius: 2px; }
+
+.fb-team-card {
+  flex: 0 0 190px;
+  text-align: center;
+  padding: 20px 16px;
+  background: var(--fb-bg);
+  border-radius: var(--fb-radius);
+  border: 1px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.fb-team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--fb-shadow);
+  border-color: var(--c);
+}
+
+.fb-team-crest {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: var(--c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 12px;
+}
+
+.fb-team-card h4 {
+  font-family: var(--fb-font-cond);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.fb-team-card p {
+  font-size: 0.78rem;
+  color: var(--fb-gray-dk);
+  margin-bottom: 6px;
+}
+
+.fb-team-since {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--fb-green-d);
+  background: rgba(31,157,85,0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ---- Moments ---- */
+.fb-moments { background: var(--fb-bg); }
+
+.fb-moments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.fb-moment-card {
+  background: var(--fb-card);
+  border-left: 4px solid var(--fb-green);
+  border-radius: 0 var(--fb-radius) var(--fb-radius) 0;
+  padding: 18px;
+  box-shadow: 0 2px 8px var(--fb-shadow);
+  transition: transform 0.2s;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.fb-moment-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fb-moment-card:hover { transform: translateX(4px); }
+
+.fb-moment-league {
+  display: inline-block;
+  font-family: var(--fb-font-cond);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.fb-moment-year {
+  display: block;
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--fb-green-d);
+  margin-bottom: 4px;
+}
+
+.fb-moment-card h3 {
+  font-family: var(--fb-font-cond);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.fb-moment-card p {
+  font-size: 0.9rem;
+  color: var(--fb-gray-dk);
+  line-height: 1.6;
+}
+
+/* ---- Official Links ---- */
+.fb-official { background: var(--fb-white); }
+
+.fb-official-links {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.fb-official-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  background: var(--o);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--fb-font-cond);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--fb-radius);
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.fb-official-link:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+}
+
+/* ---- Footer ---- */
+.fb-footer { background: #060F1F; padding: 32px 0; }
+
+.fb-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.fb-footer-logo {
+  font-family: var(--fb-font-cond);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--fb-green-l);
+}
+
+.fb-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.fb-btn-sm { padding: 7px 16px; font-size: 0.75rem; }
+
+.fb-btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--fb-gray-dk);
+  color: var(--fb-gray);
+}
+
+.fb-btn-outline:hover {
+  background: var(--fb-gray-dk);
+  color: var(--fb-white);
+  border-color: var(--fb-gray-dk);
+}
+
+.fb-footer-copy {
+  font-size: 0.8rem;
+  color: var(--fb-gray-dk);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+  .fb-leagues-grid { grid-template-columns: repeat(3, 1fr); }
+  .fb-official-links { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .fb-hero-content { padding: 60px 24px 50px; }
+  .fb-leagues-grid { grid-template-columns: repeat(2, 1fr); }
+  .fb-moments-grid { grid-template-columns: 1fr; }
+  .fb-official-links { grid-template-columns: repeat(2, 1fr); }
+  .fb-topbar-links { gap: 0; }
+  .fb-topbar-link { padding: 8px 8px; font-size: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+  .fb-leagues-grid { grid-template-columns: 1fr; }
+  .fb-official-links { grid-template-columns: 1fr; }
+}

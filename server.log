@@ -1,7 +1,7 @@
-127.0.0.1 - - [16/Jun/2026 00:07:13] "GET /sports.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 00:07:17] "GET /sports.html HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 00:07:17] "GET /style.css HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 00:07:17] "GET /sports.css HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 00:07:17] "GET /sports.js HTTP/1.1" 200 -
-127.0.0.1 - - [16/Jun/2026 00:07:20] code 404, message File not found
-127.0.0.1 - - [16/Jun/2026 00:07:20] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [12/Jul/2026 11:33:08] "GET /football.html HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jul/2026 11:33:14] "GET /football.html HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jul/2026 11:33:14] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jul/2026 11:33:14] "GET /football.css HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jul/2026 11:33:14] "GET /football.js HTTP/1.1" 200 -
+127.0.0.1 - - [12/Jul/2026 11:33:14] code 404, message File not found
+127.0.0.1 - - [12/Jul/2026 11:33:14] "GET /favicon.ico HTTP/1.1" 404 -
