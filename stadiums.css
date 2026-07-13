@@ -1,0 +1,473 @@
+/* =========================================================
+   Stadiums Subpage — Jimmy Adams
+   Editorial, image-led layout with league colour accents
+   ========================================================= */
+
+:root {
+  --st-green: #1F9D55;
+  --st-green-d: #157a40;
+  --st-ink: #0E1726;
+  --st-ink-2: #2A3445;
+  --st-muted: #6B7688;
+  --st-line: #E7E9EE;
+  --st-bg: #F6F7F9;
+  --st-card: #FFFFFF;
+}
+
+.st-body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--st-bg);
+  color: var(--st-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Top Nav ---------- */
+.st-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(14, 23, 38, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.st-topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 12px 24px;
+}
+.st-topbar-logo {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--st-green);
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 9px;
+  text-decoration: none;
+}
+.st-topbar-links {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.st-topbar-link {
+  color: #C9D2E0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+.st-topbar-link:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* ---------- Hero ---------- */
+.st-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0E1726 0%, #16243c 60%, #1F9D55 200%);
+  color: #fff;
+  padding: 84px 24px 64px;
+}
+.st-hero-pitch {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 60px, transparent 60px 120px);
+  opacity: .5;
+  pointer-events: none;
+}
+.st-hero-pitch::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 2px;
+  background: rgba(255,255,255,0.10);
+  transform: translateX(-50%);
+}
+.st-hero-content {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.st-hero-badge {
+  display: inline-block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #C7F5D9;
+  background: rgba(31,157,85,0.18);
+  border: 1px solid rgba(31,157,85,0.5);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.st-hero-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: .95;
+  margin: 0 0 14px;
+  letter-spacing: -1px;
+}
+.st-hero-sub {
+  font-size: clamp(15px, 2.2vw, 19px);
+  color: #C2CCDB;
+  max-width: 620px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.st-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.st-stat {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 16px 22px;
+  min-width: 110px;
+  backdrop-filter: blur(4px);
+}
+.st-stat-num {
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+.st-stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9FB0C6;
+}
+.st-hero-bottom {
+  position: relative;
+  max-width: 1180px;
+  margin: 48px auto 0;
+}
+.st-hero-ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+}
+.st-ticker-live {
+  color: #5BE38A;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: stPulse 1.6s infinite;
+}
+@keyframes stPulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.st-ticker-text { color: #D7DEEA; }
+
+/* ---------- Layout ---------- */
+.st-section { padding: 56px 0; }
+.st-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.st-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 26px;
+  border-bottom: 2px solid var(--st-line);
+  padding-bottom: 14px;
+}
+.st-section-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: clamp(26px, 4vw, 38px);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+.st-section-link {
+  font-size: 13px;
+  color: var(--st-muted);
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* ---------- Map ---------- */
+#stadiums-map {
+  height: 460px;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(14,23,38,0.14);
+  border: 1px solid var(--st-line);
+}
+.st-map-hint {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--st-muted);
+  text-align: center;
+}
+.st-pin {
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+  font-size: 16px;
+}
+.st-pin > span { transform: rotate(45deg); }
+.st-pin.fav { background: var(--st-green); color: #fff; }
+.st-pin.other { background: #fff; color: var(--st-ink); border: 2px solid var(--st-green); }
+
+/* ---------- Cards ---------- */
+.st-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.st-card {
+  background: var(--st-card);
+  border: 1px solid var(--st-line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(14,23,38,0.07);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease, box-shadow .25s ease;
+}
+.st-card.in { opacity: 1; transform: none; }
+.st-card:hover { box-shadow: 0 18px 44px rgba(14,23,38,0.16); }
+.st-card.fav { border-color: var(--st-green); }
+
+.st-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #dfe3ea;
+}
+.st-card-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.st-card:hover .st-card-media img { transform: scale(1.05); }
+.st-card-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--sc, var(--st-green));
+}
+.st-card-fav {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: var(--st-green);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(31,157,85,.4);
+}
+.st-card-visited {
+  position: absolute;
+  bottom: 14px; left: 14px;
+  background: rgba(14,23,38,.82);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.st-card-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+.st-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.st-card-name {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 25px;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -.3px;
+}
+.st-card-team { margin: 4px 0 0; font-size: 14px; color: var(--st-muted); font-weight: 600; }
+.st-league-chip {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--sc, var(--st-green));
+  white-space: nowrap;
+}
+.st-card-loc {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--st-ink-2);
+  display: flex; align-items: center; gap: 6px;
+}
+
+.st-facts {
+  margin: 16px 0 0;
+  border-top: 1px dashed var(--st-line);
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+}
+.st-fact { font-size: 13px; }
+.st-fact .k {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--st-muted);
+  margin-bottom: 2px;
+}
+.st-fact .v { font-weight: 600; color: var(--st-ink); }
+
+.st-nick {
+  margin: 14px 0 0;
+  font-style: italic;
+  color: var(--st-green-d);
+  font-weight: 600;
+  font-size: 14px;
+}
+.st-intro {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--st-ink-2);
+}
+
+.st-video {
+  margin: 18px 0 0;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0E1726;
+}
+.st-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+.st-video-poster {
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease;
+}
+.st-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14,23,38,.62), rgba(14,23,38,.78));
+  transition: opacity .25s ease;
+}
+.st-video-poster:hover .st-video-overlay { opacity: .85; }
+.st-play-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.96);
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 22px 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--st-ink);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.st-play-btn:hover { transform: scale(1.05); box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+.st-play-icon {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: var(--st-green);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  padding-left: 2px;
+}
+
+.st-card-foot {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.st-link {
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 9px;
+  transition: background .2s, color .2s;
+}
+.st-link.primary { background: var(--st-green); color: #fff; }
+.st-link.primary:hover { background: var(--st-green-d); }
+.st-link.ghost { border: 1px solid var(--st-line); color: var(--st-ink-2); }
+.st-link.ghost:hover { border-color: var(--st-green); color: var(--st-green-d); }
+
+/* ---------- Footer ---------- */
+.st-footer {
+  background: var(--st-ink);
+  color: #fff;
+  padding: 40px 0;
+  margin-top: 20px;
+}
+.st-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.st-footer-logo { font-family: 'Roboto Condensed', sans-serif; font-size: 20px; }
+.st-footer-copy { color: #8C99AB; font-size: 13px; margin: 14px 0 0; }
+.st-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: background .2s, transform .15s;
+}
+.st-btn-sm { padding: 9px 16px; font-size: 14px; }
+.st-btn-outline { border: 1px solid rgba(255,255,255,.3); color: #fff; }
+.st-btn-outline:hover { background: rgba(255,255,255,.1); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .st-cards { grid-template-columns: 1fr; }
+  #stadiums-map { height: 360px; }
+}
+@media (max-width: 520px) {
+  .st-topbar-inner { flex-wrap: wrap; gap: 10px; }
+  .st-topbar-links { gap: 2px; }
+  .st-topbar-link { padding: 7px 9px; font-size: 13px; }
+  .st-facts { grid-template-columns: 1fr; }
+  .st-stat { min-width: 84px; padding: 12px 14px; }
+}

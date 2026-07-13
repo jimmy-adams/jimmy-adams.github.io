@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stadiums — Jimmy Adams</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stadiums.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="st-body">
+
+  <!-- Top Nav Bar -->
+  <nav class="st-topbar">
+    <div class="st-topbar-inner">
+      <a href="index.html" class="st-topbar-logo">JA</a>
+      <div class="st-topbar-links">
+        <a href="football.html" class="st-topbar-link">← Football</a>
+        <a href="football.html#leagues" class="st-topbar-link">Leagues</a>
+        <a href="sports.html" class="st-topbar-link">Sports</a>
+        <a href="index.html" class="st-topbar-link">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="st-hero" id="st-hero">
+    <div class="st-hero-pitch"></div>
+    <div class="st-hero-content">
+      <span class="st-hero-badge">🏟️ CATHEDRALS OF THE GAME</span>
+      <h1 class="st-hero-title">Stadiums</h1>
+      <p class="st-hero-sub">13 grounds across Europe's top 5 leagues — the homes of the clubs I follow, with real photos, videos & stories.</p>
+      <div class="st-hero-stats" id="st-hero-stats">
+        <div class="st-stat"><span class="st-stat-num" data-count="13">0</span><span class="st-stat-label">Stadiums</span></div>
+        <div class="st-stat"><span class="st-stat-num" data-count="5">0</span><span class="st-stat-label">Leagues</span></div>
+        <div class="st-stat"><span class="st-stat-num" data-count="5">0</span><span class="st-stat-label">My Teams</span></div>
+        <div class="st-stat"><span class="st-stat-num" data-count="1">0</span><span class="st-stat-label">Visited City</span></div>
+      </div>
+    </div>
+    <div class="st-hero-bottom">
+      <div class="st-hero-ticker">
+        <span class="st-ticker-live">● GROUND HOPPING</span>
+        <span class="st-ticker-text">From Old Trafford to Parc des Princes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="st-section st-map-section" id="map">
+    <div class="st-container">
+      <div class="st-section-header">
+        <h2 class="st-section-title">Where They Stand</h2>
+        <span class="st-section-link" id="st-map-count"></span>
+      </div>
+      <div id="stadiums-map"></div>
+      <div class="st-map-hint">⚽ my teams · 🏟️ other grounds &nbsp;|&nbsp; scroll to explore each one below</div>
+    </div>
+  </section>
+
+  <!-- Stadium Cards -->
+  <section class="st-section st-cards-section" id="stadiums-list">
+    <div class="st-container">
+      <div class="st-section-header">
+        <h2 class="st-section-title">The Grounds</h2>
+        <span class="st-section-link" id="st-list-count"></span>
+      </div>
+      <div class="st-cards" id="stadiums-cards"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="st-footer">
+    <div class="st-container">
+      <div class="st-footer-top">
+        <span class="st-footer-logo">Jimmy Adams</span>
+        <a href="football.html" class="st-btn st-btn-sm st-btn-outline">← Back to Football</a>
+      </div>
+      <p class="st-footer-copy">© 2026 Stadiums — Game on, everywhere</p>
+      <p class="st-footer-copy" style="margin-top:6px;opacity:.7;">Photos via Wikimedia Commons · Videos from official club YouTube channels.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="stadiums.js"></script>
+  <script src="stadiums-page.js"></script>
+</body>
+</html>
