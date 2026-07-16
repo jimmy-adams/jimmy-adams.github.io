@@ -1,0 +1,223 @@
+/* =========================================================
+   Vlog Page — Jimmy Adams
+   In-page editor + feed, warm "vlog" accent
+   ========================================================= */
+
+:root {
+  --vl-coral: #FF6B5C;
+  --vl-coral-d: #E24E3E;
+  --vl-amber: #FFB454;
+  --vl-ink: #14110F;
+  --vl-ink-2: #2E2824;
+  --vl-muted: #7A726C;
+  --vl-line: #ECE6E1;
+  --vl-bg: #FBF8F5;
+  --vl-card: #FFFFFF;
+}
+
+.vl-body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--vl-bg);
+  color: var(--vl-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Top Nav ---------- */
+.vl-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(20, 17, 15, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.vl-topbar-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 12px 24px;
+}
+.vl-topbar-logo {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--vl-coral);
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 9px;
+  text-decoration: none;
+}
+.vl-topbar-links { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+.vl-topbar-link {
+  color: #D9CFC8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+.vl-topbar-link:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.vl-active { color: #fff; background: rgba(255,107,92,0.22); }
+
+/* ---------- Hero ---------- */
+.vl-hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 70% 0%, #2A211C 0%, #14110F 60%, #FF6B5C 240%);
+  color: #fff;
+  padding: 84px 24px 64px;
+}
+.vl-hero-grain {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 26px);
+  opacity: .5; pointer-events: none;
+}
+.vl-hero-content { position: relative; max-width: 820px; margin: 0 auto; text-align: center; }
+.vl-hero-badge {
+  display: inline-block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px; letter-spacing: 2px;
+  color: #FFE0D9;
+  background: rgba(255,107,92,0.18);
+  border: 1px solid rgba(255,107,92,0.5);
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+}
+.vl-hero-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: clamp(52px, 10vw, 104px);
+  line-height: .92; margin: 0 0 14px; letter-spacing: -1px;
+}
+.vl-hero-sub {
+  font-size: clamp(15px, 2.2vw, 19px);
+  color: #D8CEC7; max-width: 600px; margin: 0 auto; line-height: 1.6;
+}
+.vl-hero-bottom { position: relative; max-width: 1080px; margin: 46px auto 0; }
+.vl-hero-ticker {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: rgba(0,0,0,0.25); border-radius: 999px; padding: 8px 18px; font-size: 13px;
+}
+.vl-ticker-live { color: #FF8B7D; font-weight: 700; letter-spacing: 1px; animation: vlPulse 1.6s infinite; }
+@keyframes vlPulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.vl-ticker-text { color: #E4DAD3; }
+
+/* ---------- Layout ---------- */
+.vl-section { padding: 52px 0; }
+.vl-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.vl-section-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-bottom: 22px; border-bottom: 2px solid var(--vl-line); padding-bottom: 14px;
+}
+.vl-section-title { font-family: 'Roboto Condensed', sans-serif; font-size: clamp(26px, 4vw, 38px); margin: 0; letter-spacing: -.5px; }
+.vl-section-link { font-size: 13px; color: var(--vl-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+
+/* ---------- Editor ---------- */
+.vl-editor {
+  background: var(--vl-card);
+  border: 1px solid var(--vl-line);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(20,17,15,0.06);
+}
+.vl-input, .vl-textarea {
+  width: 100%; box-sizing: border-box;
+  border: 1px solid var(--vl-line); border-radius: 11px;
+  padding: 13px 15px; font-size: 15px; font-family: inherit;
+  background: #FCFAF8; color: var(--vl-ink); margin-bottom: 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.vl-input:focus, .vl-textarea:focus { outline: none; border-color: var(--vl-coral); box-shadow: 0 0 0 3px rgba(255,107,92,0.15); }
+.vl-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+.vl-editor-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.vl-btn {
+  border: 0; border-radius: 11px; font-size: 15px; font-weight: 700; cursor: pointer;
+  padding: 12px 20px; transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+  font-family: inherit;
+}
+.vl-btn:active { transform: scale(0.97); }
+.vl-btn-primary { background: var(--vl-ink); color: #fff; }
+.vl-btn-primary:hover { background: #000; }
+.vl-btn-push { background: var(--vl-coral); color: #fff; box-shadow: 0 6px 18px rgba(255,107,92,0.32); }
+.vl-btn-push:hover { background: var(--vl-coral-d); }
+.vl-btn-sm { padding: 9px 15px; font-size: 14px; }
+.vl-btn-ghost { background: transparent; border: 1px solid var(--vl-line); color: var(--vl-ink-2); }
+.vl-btn-ghost:hover { border-color: var(--vl-coral); color: var(--vl-coral-d); }
+.vl-btn-outline { border: 1px solid rgba(255,255,255,.3); color: #fff; }
+.vl-btn-outline:hover { background: rgba(255,255,255,.1); }
+.vl-saved-hint { font-size: 13px; color: var(--vl-muted); }
+
+/* ---------- Settings ---------- */
+.vl-gear {
+  background: transparent; border: 1px solid var(--vl-line); color: var(--vl-muted);
+  border-radius: 9px; padding: 7px 12px; font-size: 13px; cursor: pointer; font-family: inherit;
+}
+.vl-gear:hover { border-color: var(--vl-coral); color: var(--vl-coral-d); }
+.vl-settings {
+  margin-top: 16px; background: #FFF6F3; border: 1px solid #F6D9D2;
+  border-radius: 16px; padding: 20px;
+}
+.vl-settings h3 { margin: 0 0 8px; font-family: 'Roboto Condensed', sans-serif; font-size: 22px; }
+.vl-settings-note { margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: var(--vl-ink-2); }
+.vl-settings-note code { background: #FBE3DD; padding: 1px 6px; border-radius: 5px; font-size: 12px; }
+.vl-settings-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.vl-token-status { font-size: 13px; color: var(--vl-coral-d); font-weight: 600; }
+
+/* ---------- Feed ---------- */
+.vl-feed { display: flex; flex-direction: column; gap: 22px; }
+.vl-post {
+  background: var(--vl-card); border: 1px solid var(--vl-line); border-radius: 18px;
+  overflow: hidden; box-shadow: 0 8px 24px rgba(20,17,15,0.05);
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease, box-shadow .25s ease;
+}
+.vl-post.in { opacity: 1; transform: none; }
+.vl-post:hover { box-shadow: 0 14px 36px rgba(20,17,15,0.12); }
+.vl-post-media { background: #000; aspect-ratio: 16/9; position: relative; }
+.vl-post-media iframe, .vl-post-media video { width: 100%; height: 100%; border: 0; display: block; }
+.vl-post-body { padding: 22px 24px 24px; }
+.vl-post-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.vl-post-date { font-size: 12px; color: var(--vl-muted); letter-spacing: .5px; text-transform: uppercase; }
+.vl-post-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: .5px; color: var(--vl-coral-d);
+  background: #FFEAE5; padding: 4px 10px; border-radius: 999px;
+}
+.vl-post-title { font-family: 'Roboto Condensed', sans-serif; font-size: 26px; margin: 0 0 10px; line-height: 1.15; letter-spacing: -.3px; }
+.vl-post-text { font-size: 15px; line-height: 1.72; color: var(--vl-ink-2); white-space: pre-wrap; word-break: break-word; }
+.vl-post-text a { color: var(--vl-coral-d); }
+.vl-post-del {
+  background: transparent; border: 1px solid var(--vl-line); color: var(--vl-muted);
+  border-radius: 8px; padding: 6px 12px; font-size: 13px; cursor: pointer; font-family: inherit;
+}
+.vl-post-del:hover { border-color: var(--vl-coral); color: var(--vl-coral-d); }
+.vl-empty { text-align: center; color: var(--vl-muted); font-size: 15px; padding: 30px 0; }
+
+/* ---------- Footer ---------- */
+.vl-footer { background: var(--vl-ink); color: #fff; padding: 40px 0; margin-top: 20px; }
+.vl-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.vl-footer-logo { font-family: 'Roboto Condensed', sans-serif; font-size: 20px; }
+.vl-footer-copy { color: #9C948D; font-size: 13px; margin: 14px 0 0; }
+
+/* ---------- Toast ---------- */
+.vl-toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
+  background: var(--vl-ink); color: #fff; padding: 13px 22px; border-radius: 12px;
+  font-size: 14px; font-weight: 600; box-shadow: 0 12px 30px rgba(0,0,0,.3);
+  opacity: 0; transition: opacity .3s ease, transform .3s ease; z-index: 2000; max-width: 90vw;
+}
+.vl-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.vl-toast.ok { background: #1F9D55; }
+.vl-toast.err { background: var(--vl-coral-d); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .vl-topbar-inner { flex-wrap: wrap; gap: 10px; }
+  .vl-topbar-links { gap: 2px; }
+  .vl-topbar-link { padding: 7px 9px; font-size: 13px; }
+  .vl-editor-actions .vl-btn { flex: 1; text-align: center; }
+}

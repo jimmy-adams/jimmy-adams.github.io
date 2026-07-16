@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vlog — Jimmy Adams</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="vlog.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="vl-body">
+
+  <!-- Top Nav Bar -->
+  <nav class="vl-topbar">
+    <div class="vl-topbar-inner">
+      <a href="index.html" class="vl-topbar-logo">JA</a>
+      <div class="vl-topbar-links">
+        <a href="index.html" class="vl-topbar-link">Home</a>
+        <a href="football.html" class="vl-topbar-link">Football</a>
+        <a href="stadiums.html" class="vl-topbar-link">Stadiums</a>
+        <a href="sports.html" class="vl-topbar-link">Sports</a>
+        <a href="#" class="vl-topbar-link vl-active">Vlog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="vl-hero" id="vl-hero">
+    <div class="vl-hero-grain"></div>
+    <div class="vl-hero-content">
+      <span class="vl-hero-badge">🎬 MY VLOG</span>
+      <h1 class="vl-hero-title">Vlog</h1>
+      <p class="vl-hero-sub">Stories, match days & travels — written right here in the page, then pushed straight to the site.</p>
+    </div>
+    <div class="vl-hero-bottom">
+      <div class="vl-hero-ticker">
+        <span class="vl-ticker-live">● REC</span>
+        <span class="vl-ticker-text">Your diary, your camera, your words</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editor -->
+  <section class="vl-section vl-editor-section" id="editor">
+    <div class="vl-container">
+      <div class="vl-section-header">
+        <h2 class="vl-section-title">Write a new entry</h2>
+        <button class="vl-gear" id="vl-gear" title="GitHub push settings">⚙ Push settings</button>
+      </div>
+
+      <div class="vl-editor">
+        <input type="text" id="vl-title" class="vl-input" placeholder="Title — e.g. Matchday at Old Trafford">
+        <input type="text" id="vl-video" class="vl-input" placeholder="Video link (optional) — YouTube / Bilibili / .mp4 URL">
+        <textarea id="vl-content" class="vl-textarea" rows="6" placeholder="Write your story...&#10;Plain text, line breaks preserved. URLs are auto-linked."></textarea>
+        <div class="vl-editor-actions">
+          <button class="vl-btn vl-btn-primary" id="vl-publish">✍️ Publish</button>
+          <button class="vl-btn vl-btn-push" id="vl-push">🚀 Push to GitHub</button>
+          <span class="vl-saved-hint" id="vl-saved-hint"></span>
+        </div>
+      </div>
+
+      <!-- Settings panel -->
+      <div class="vl-settings" id="vl-settings" hidden>
+        <h3>GitHub Push Setup</h3>
+        <p class="vl-settings-note">
+          Posts are saved in your browser automatically. To make them live on the site,
+          enter a GitHub <strong>Personal Access Token</strong> (scope <code>public_repo</code> or <code>repo</code>).
+          It is stored only in this browser's localStorage and is sent directly to GitHub when you push.
+        </p>
+        <input type="password" id="vl-token" class="vl-input" placeholder="ghp_... or github_pat_...">
+        <div class="vl-settings-actions">
+          <button class="vl-btn vl-btn-sm vl-btn-primary" id="vl-save-token">Save token</button>
+          <button class="vl-btn vl-btn-sm vl-btn-ghost" id="vl-clear-token">Clear</button>
+          <span id="vl-token-status" class="vl-token-status"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feed -->
+  <section class="vl-section vl-feed-section" id="feed">
+    <div class="vl-container">
+      <div class="vl-section-header">
+        <h2 class="vl-section-title">Entries</h2>
+        <span class="vl-section-link" id="vl-count"></span>
+      </div>
+      <div class="vl-feed" id="vl-feed"></div>
+      <p class="vl-empty" id="vl-empty">No entries yet. Write your first one above ✦</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="vl-footer">
+    <div class="vl-container">
+      <div class="vl-footer-top">
+        <span class="vl-footer-logo">Jimmy Adams</span>
+        <a href="index.html" class="vl-btn vl-btn-sm vl-btn-outline">← Back to Home</a>
+      </div>
+      <p class="vl-footer-copy">© 2026 Vlog — live from the page</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="vl-toast" id="vl-toast" hidden></div>
+
+  <script src="vlog.js"></script>
+</body>
+</html>
