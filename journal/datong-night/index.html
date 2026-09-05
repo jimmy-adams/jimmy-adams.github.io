@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大同古城之夜 · Jimmy's Travel Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --ink: #2C2A26;
+      --ink-soft: #6B675F;
+      --sand: #A67B5B;
+      --sand-deep: #8A6248;
+      --moss: #7A8B6F;
+      --line: #E5E0D8;
+      --night: #1E2A3A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif SC', 'Inter', serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Hero（夜景深蓝调） ---------- */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      background-image: linear-gradient(180deg, rgba(10,14,22,.35) 0%, rgba(10,14,22,.2) 40%, rgba(10,14,22,.82) 100%), url('photos/05-blue-paifang.jpg');
+      background-size: cover;
+      background-position: center 60%;
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px 64px;
+      color: #F5F1EA;
+    }
+    .hero-meta {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      color: #B8CCE0;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(40px, 7vw, 68px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 10px 0 18px;
+      letter-spacing: 2px;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(245,241,234,.85);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      align-items: center;
+    }
+    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: #6E93C0; }
+    .hero-back {
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      letter-spacing: 1px;
+      color: rgba(245,241,234,.9);
+      text-decoration: none;
+      background: rgba(20,26,38,.45);
+      padding: 8px 16px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(245,241,234,.25);
+      transition: background .3s;
+    }
+    .hero-back:hover { background: rgba(20,26,38,.7); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-family: 'Caveat', cursive;
+      color: rgba(245,241,234,.75);
+      font-size: 19px;
+      writing-mode: vertical-rl;
+      animation: floaty 2.6s ease-in-out infinite;
+    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    /* ---------- 主体 ---------- */
+    .journal { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; }
+
+    .prologue {
+      text-align: center;
+      padding: 26px 0 54px;
+    }
+    .prologue .ornament { font-size: 22px; color: var(--sand); letter-spacing: 10px; }
+    .prologue p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      margin-top: 18px;
+    }
+    .prologue .hand {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--sand-deep);
+      display: block;
+      margin-top: 14px;
+    }
+
+    section.chapter { margin: 0 0 84px; }
+
+    .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+    .chapter-no {
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      color: var(--sand);
+      white-space: nowrap;
+    }
+    .chapter-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 3px;
+    }
+    .chapter-title::after {
+      content: '';
+      display: block;
+      width: 44px; height: 2px;
+      background: var(--sand);
+      margin-top: 10px;
+      opacity: .65;
+    }
+
+    .chapter p { margin-bottom: 20px; font-size: 16.5px; }
+    .chapter p em { font-style: normal; color: var(--sand-deep); }
+
+    .photo-card { margin: 34px 0 26px; }
+    .photo-frame {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.35), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .photo-frame img { width: 100%; display: block; transition: transform 1.2s ease; }
+    .photo-frame:hover img { transform: scale(1.025); }
+    .photo-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .photo-caption span { color: var(--sand); margin: 0 6px; }
+    .photo-note {
+      background: rgba(244,238,228,.6);
+      border-left: 2px solid var(--sand);
+      padding: 14px 20px;
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink);
+      border-radius: 0 4px 4px 0;
+    }
+    .photo-note em { font-style: normal; color: var(--sand-deep); font-weight: 600; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- 尾声 ---------- */
+    .epilogue {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 58px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .epilogue::before, .epilogue::after {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: var(--line);
+    }
+    .epilogue::before { top: 0; }
+    .epilogue::after { bottom: 0; }
+    .epilogue .quote {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(22px, 3.6vw, 30px);
+      font-style: italic;
+      line-height: 1.7;
+      letter-spacing: 1px;
+    }
+    .epilogue .quote strong { font-style: normal; color: var(--sand-deep); }
+
+    footer {
+      text-align: center;
+      padding: 44px 20px 58px;
+      color: var(--ink-soft);
+    }
+    footer .hand-sign { font-family: 'Caveat', cursive; font-size: 30px; color: var(--ink); }
+    footer .coords {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12.5px;
+      letter-spacing: 2.5px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    footer .foot-note { font-size: 12.5px; margin-top: 18px; letter-spacing: 1px; }
+    footer .foot-note a { color: var(--moss); text-decoration: none; border-bottom: 1px dotted var(--moss); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <a class="hero-back" href="../">← Journal</a>
+    <div class="hero-inner">
+      <div class="hero-meta">Aug. 29, 2026 · after the grottoes</div>
+      <h1>大同古城之夜</h1>
+      <div class="hero-sub">
+        <span>山西 · 大同 · 古城</span>
+        <span class="dot"></span>
+        <span>40.09° N, 113.30° E</span>
+        <span class="dot"></span>
+        <span>灯一亮，塞上的城把自己重新讲了一遍</span>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll ↓</div>
+  </header>
+
+  <!-- 序 -->
+  <div class="journal">
+    <div class="prologue reveal">
+      <div class="ornament">❋ ❋ ❋</div>
+      <p>从石窟回来，天已经黑了。<br>
+      白天看了一整天的佛，晚上换古城来补。<br>
+      灯一亮，这座塞上的城，把自己重新讲了一遍。</p>
+      <span class="hand">—— 夜游记，始于中轴线</span>
+    </div>
+
+    <!-- 第一章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.01</span>
+        <h2 class="chapter-title">华灯初上的古城</h2>
+      </div>
+      <p>沿着中轴线走，琉璃屋顶一片片亮起来——金黄的殿宇、朱红的宫墙、蓝得发亮的琉璃飞檐。</p>
+      <p><em>白天它是石头，晚上它是灯。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/01-avenue.jpg" alt="大同古城中轴线夜景" loading="lazy">
+        </div>
+        <p class="photo-caption">中轴线一路亮下去，像一条光的河<span>·</span>the night avenue</p>
+        <div class="photo-note"><em>古城中轴线夜景</em>——代王府一带，琉璃殿宇层层叠叠向纵深铺开，暖黄灯光下缀着红灯笼，街口牌坊写着"大同第一街"。</div>
+      </div>
+    </section>
+
+    <!-- 第二章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.02</span>
+        <h2 class="chapter-title">牌楼下的车流</h2>
+      </div>
+      <p>走着走着就到了和阳街的牌楼下。金碧辉煌的斗拱牌楼，底下却是一整条喧嚣的现代街——白色大巴、电动车、穿行的人群，全从这座牌楼底下过。</p>
+      <p><em>古和今，不是割裂的两截，是叠在一起的同一张底片。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/02-heyang-gate.jpg" alt="和阳街牌坊夜景" loading="lazy">
+        </div>
+        <p class="photo-caption">牌楼底下，车流和人声都是新的<span>·</span>Heyang Street</p>
+        <div class="photo-note"><em>和阳街牌坊</em>——金碧辉煌的斗拱牌楼高悬"和陽街"匾额，楼下大巴的灯、电动车的身影、行人的剪影，全都罩在这一盏千年未熄的灯火下。</div>
+      </div>
+    </section>
+
+    <!-- 第三章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.03</span>
+        <h2 class="chapter-title">水里的另一座城</h2>
+      </div>
+      <p>最打动我的，是护城河上的倒影。红墙、蓝瓦、飞檐——整座古城在水里又长了一遍，清清楚楚，一丝不苟。</p>
+      <p>风一吹，倒影就碎了；风一停，它又慢慢拼回去。一个人站在岸边，看这座城在水里反复地碎、反复地拼，<em>忽然觉得今天的自己也是这样。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/03-moat-reflection.jpg" alt="护城河夜景倒影" loading="lazy">
+        </div>
+        <p class="photo-caption">风一吹就碎，风一停又拼回去<span>·</span>the moat</p>
+        <div class="photo-note"><em>护城河 · 代王府倒影</em>——红墙配蓝琉璃飞檐，水中倒影完整如镜。对岸的蓝色琉璃牌楼与岸边散步的人群，一并沉进夜里。</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/04-daiwangfu-night.jpg" alt="代王府夜景倒影" loading="lazy">
+        </div>
+        <p class="photo-caption">水里的城，比岸上的更完整<span>·</span>Daiwangfu</p>
+        <div class="photo-note"><em>代王府夜景</em>——红墙蓝瓦，水面倒影清晰如拓片，岸边游客举着相机，把这一刻也收进了自己的取景框。</div>
+      </div>
+    </section>
+
+    <!-- 第四章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.04</span>
+        <h2 class="chapter-title">那盏蓝色的灯</h2>
+      </div>
+      <p>最后一站，是那座巨大的蓝色琉璃牌楼。白天看，它是灰扑扑的石头；到了夜里，蓝光一打，整座牌楼像从水里浮起来，透着一股不真实的蓝。</p>
+      <p>红衣的人群从它底下穿过，像一条红色的河，流过蓝色的桥。<em>我站在远处拍了很久，没舍得走。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/05-blue-paifang.jpg" alt="蓝色琉璃牌楼夜景" loading="lazy">
+        </div>
+        <p class="photo-caption">红衣的人流过蓝色的桥<span>·</span>the blue paifang</p>
+        <div class="photo-note"><em>蓝色琉璃牌楼</em>——巨大的斗拱牌楼通体泛着蓝光，匾额在夜色里泛着幽光，红衣人群穿行其下，冷与暖、古与今在此同框。</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 尾声 -->
+  <div class="epilogue reveal">
+    <p class="quote">白天看佛，夜里看灯。<br>城在水里反复地碎、反复地拼，<br><strong>而我从石窟一路走到古城，把一天走成了两篇。</strong></p>
+  </div>
+
+  <footer>
+    <div class="hand-sign">Jimmy Adams</div>
+    <div class="coords">DATONG ANCIENT CITY · 40.09°N 113.30°E</div>
+    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../yungang/">上一篇：一个人的云冈 →</a></p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
