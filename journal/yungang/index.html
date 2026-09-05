@@ -33,9 +33,9 @@
       min-height: 92vh;
       display: flex;
       align-items: flex-end;
-      background-image: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,.15) 40%, rgba(20,16,12,.78) 100%), url('photos/03-facade.jpg');
+      background-image: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,.15) 40%, rgba(20,16,12,.78) 100%), url('photos/06-cave9-gateway.jpg');
       background-size: cover;
-      background-position: center 65%;
+      background-position: center 55%;
     }
     .hero-inner {
       width: 100%;
@@ -103,6 +103,17 @@
       margin-top: 14px;
     }
 
+    /* 篇章分隔 */
+    .part-divider {
+      text-align: center;
+      margin: 0 0 72px;
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .part-divider .cn { font-family: 'Caveat', cursive; font-size: 24px; color: var(--sand); }
+    .part-divider .en { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; color: var(--ink-soft); margin-top: 6px; }
+
     section.chapter { margin: 0 0 84px; }
 
     .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
@@ -130,9 +141,12 @@
     .chapter p { margin-bottom: 20px; font-size: 16.5px; }
     .chapter p em { font-style: normal; color: var(--sand-deep); }
 
+    /* 图文对照卡片：上图 + 下说明 */
+    .photo-card {
+      margin: 34px 0 26px;
+    }
     .photo-frame {
       position: relative;
-      margin: 34px 0 8px;
       border-radius: 4px;
       overflow: hidden;
       box-shadow: 0 14px 38px -14px rgba(44,42,38,.35), 0 2px 8px rgba(44,42,38,.08);
@@ -147,6 +161,16 @@
       margin: 14px 0 0;
     }
     .photo-caption span { color: var(--sand); margin: 0 6px; }
+    .photo-note {
+      background: rgba(244,238,228,.6);
+      border-left: 2px solid var(--sand);
+      padding: 14px 20px;
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink);
+      border-radius: 0 4px 4px 0;
+    }
+    .photo-note em { font-style: normal; color: var(--sand-deep); font-weight: 600; }
 
     /* 入场动画 */
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
@@ -233,6 +257,12 @@
       <span class="hand">—— 独行记，始于武周山</span>
     </div>
 
+    <!-- ============ 上篇 · 第 3 窟 ============ -->
+    <div class="part-divider reveal">
+      <div class="cn">Upper · Cave 3</div>
+      <div class="en">灵岩寺洞 · 十米的慈悲</div>
+    </div>
+
     <!-- 第一章 -->
     <section class="chapter reveal">
       <div class="chapter-head">
@@ -241,11 +271,21 @@
       </div>
       <p>第三窟，灵岩寺洞，云冈最大的洞窟。主佛高约十米，趺坐在幽暗深处，右手施无畏印。我仰着头，脖子酸了也没舍得低下来。</p>
       <p>一个人旅行的坏处，是没人帮你按快门；好处是——你干脆放弃了拍照，改用眼睛看。<em>十米的慈悲面前，取景框是个笑话。</em></p>
-      <div class="photo-frame">
-        <img src="photos/01-buddha.jpg" alt="第3窟主佛" loading="lazy">
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/01-buddha.jpg" alt="第3窟主佛" loading="lazy">
+        </div>
+        <p class="photo-caption">仰拍到最后，敬畏是脖子发酸<span>·</span>Cave 3</p>
+        <div class="photo-note"><em>第 3 窟主佛 · 云冈最大洞窟</em>——主尊高约 10 米，面庞圆润，带着北魏晚期从犍陀罗向中原审美过渡的温和神情。俯身仰拍的视角，把"十米"压成一种体积上的压迫感。</div>
       </div>
-      <p class="photo-caption">仰拍到最后，敬畏是脖子发酸<span>·</span>Cave 3</p>
       <p>两侧的胁侍菩萨头戴宝冠，身姿微侧，像随时会走下莲座。灯光斜斜掠过砂岩，一千五百年的风把石头摸得温润，佛的衣纹便像水一样，从肩头流到脚边。</p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/02-trinity.jpg" alt="三尊像" loading="lazy">
+        </div>
+        <p class="photo-caption">主尊与胁侍，一坐千年<span>·</span>Cave 3, wider</p>
+        <div class="photo-note"><em>主尊 + 两侧胁侍菩萨</em>——略退一步，三尊同框。菩萨宝冠、肩披、环佩仍依稀可辨；灯光自头顶斜落，石质肌理如水流过衣褶。</div>
+      </div>
     </section>
 
     <!-- 第二章 -->
@@ -255,15 +295,21 @@
         <h2 class="chapter-title">崖壁上的蜂巢</h2>
       </div>
       <p>走出洞窟，阳光很盛。整面武周山南崖像一座巨大的蜂巢——洞窟层层叠叠，栈道在崖壁上折出细线，人走在上面，小得像一个标点。</p>
-      <div class="photo-frame">
-        <img src="photos/03-facade.jpg" alt="石窟外立面全景" loading="lazy">
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/03-facade.jpg" alt="石窟外立面全景" loading="lazy">
+        </div>
+        <p class="photo-caption">把手机举过头顶，蓝天自己会构图<span>·</span>the cliff</p>
+        <div class="photo-note"><em>武周山南崖外立面</em>——洞窟如蜂巢般密布于崖壁，游客沿栈道缓行。晴空、砂岩、崖壁三者合成最朴素的构图。</div>
       </div>
-      <p class="photo-caption">把手机举过头顶，蓝天自己会构图<span>·</span>the cliff</p>
       <p>身旁是一对对合影的游客。我拍完就走，没人催，也没人等。<em>孤独在这一刻不是形容词，是特权。</em></p>
-      <div class="photo-frame">
-        <img src="photos/04-cave-sky.jpg" alt="洞窟与蓝天" loading="lazy">
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/04-cave-sky.jpg" alt="洞窟与蓝天" loading="lazy">
+        </div>
+        <p class="photo-caption">洞口盛着整片天空，像一只石头的眼睛<span>·</span>cave &amp; sky</p>
+        <div class="photo-note"><em>仰视洞窟与天空</em>——从窟内向外望，洞口框出蓝天；绿树点缀其间，把"洞"与"山"连成一体。</div>
       </div>
-      <p class="photo-caption">洞口盛着整片天空，像一只石头的眼睛<span>·</span>cave &amp; sky</p>
     </section>
 
     <!-- 第三章 -->
@@ -274,31 +320,100 @@
       </div>
       <p>最后一面墙前，我站了很久。</p>
       <p>伎乐天手持琵琶、横笛、排箫，衣带当风，层层叠叠挤在佛龛四周。北魏的工匠在坚硬的砂岩上，凿出了一场无声的演奏——没有指挥，没有听众，一凿就是几十年。</p>
-      <div class="photo-frame">
-        <img src="photos/05-carving.jpg" alt="浮雕与伎乐天" loading="lazy">
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/05-carving.jpg" alt="浮雕与伎乐天" loading="lazy">
+        </div>
+        <p class="photo-caption">一千五百年前的旋律，至今没有停<span>·</span>the musicians</p>
+        <div class="photo-note"><em>伎乐天浮雕</em>——琵琶、横笛、排箫层层叠叠。色彩褪尽，只剩凹处一点朱红与石青；凑近是工艺，退后是艺术。</div>
       </div>
-      <p class="photo-caption">一千五百年前的旋律，至今没有停<span>·</span>the musicians</p>
-      <p>色彩褪得差不多了，只在凹处剩一点朱红与石青。凑近看是工艺，退后看是艺术；一千五百年后，一个独行的人站在墙前，忽然听见了。</p>
     </section>
 
-    <!-- 补一张：三尊同框 -->
+    <!-- ============ 下篇 · 第 9 窟 ============ -->
+    <div class="part-divider reveal">
+      <div class="cn">Lower · Cave 9</div>
+      <div class="en">阿閦佛洞 · 一座被时间封存的华丽宫殿</div>
+    </div>
+
+    <!-- 第四章 -->
     <section class="chapter reveal">
       <div class="chapter-head">
         <span class="chapter-no">No.04</span>
-        <h2 class="chapter-title">合十，然后道别</h2>
+        <h2 class="chapter-title">凿出来的木构宫殿</h2>
       </div>
-      <p>离开前，我又回了一次第三窟。十米的慈悲看了两遍——第一遍看佛，第二遍看自己。</p>
-      <div class="photo-frame">
-        <img src="photos/02-trinity.jpg" alt="三尊像" loading="lazy">
+      <p>如果说第三窟是"十米的慈悲"，那第九窟就是"一整个宫殿"。它是云冈中期五华洞的代表——前室北壁那座塔柱式门楼，是整片崖上最华丽的浮雕之一。</p>
+      <p>匠人们没用一块木头，却在砂岩上刻出了榫卯、斗拱、飞檐和垂花。往上,是托举莲花的阿育王柱头；往里，是密密层层的小坐佛龛。<em>整面墙不是石壁，是一栋凝固的木结构建筑。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/06-cave9-gateway.jpg" alt="第9窟前室北壁门楼" loading="lazy">
+        </div>
+        <p class="photo-caption">红底上的细密浅浮雕，一步一景<span>·</span>Cave 9 gateway</p>
+        <div class="photo-note"><em>前室北壁仿木门楼</em>——塔柱式门楣、拱形龛、两尊托莲柱头。朱红为底，浅浮雕层层铺开，是云冈中期雕饰最繁复的一例。</div>
       </div>
-      <p class="photo-caption">主尊与胁侍，一坐千年<span>·</span>Cave 3, wider</p>
-      <p>日头偏西，崖壁被染成蜜糖色。五万尊造像，大半残缺：缺头的，断手的，坍成一堆的。<em>云冈从不假装完美。</em>它只是平静地陈列一个事实——时间从不留情，但总有人想在石头上留下点什么。</p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/07-cave9-doorway.jpg" alt="第9窟门楼上部特写" loading="lazy">
+        </div>
+        <p class="photo-caption">飞天托莲，衣带当风<span>·</span>Cave 9 doorway</p>
+        <div class="photo-note"><em>门楼上部特写</em>——中央木构门楼，两侧飞天托举莲华，檐下密排坐佛龛。衣带飘动感极强，仿佛下一秒就要被风吹落。</div>
+      </div>
+    </section>
+
+    <!-- 第五章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.05</span>
+        <h2 class="chapter-title">蓝发的阿閦佛</h2>
+      </div>
+      <p>第九窟的主尊是阿閦佛。它不像第三窟那样高大得让人窒息，却有一种更"近"的庄严——蓝发髻，深褐面容，胸口袈裟上还留着一排排小孔。</p>
+      <p>那些孔，是当年贴金箔留下的钉痕。<em>金箔早没了，只剩下这排孔，像一排省略号，替它讲完没说出口的辉煌。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/08-cave9-buddha.jpg" alt="第9窟阿閦佛" loading="lazy">
+        </div>
+        <p class="photo-caption">无畏印与贴金钉孔，风化得刚刚好<span>·</span>Cave 9 Buddha</p>
+        <div class="photo-note"><em>阿閦佛主尊</em>——蓝发、深色面容、金色袒右袈裟，右手施无畏印。胸前规律的小孔是古代贴金固定所用；金已剥落，孔犹在，庄严不减。</div>
+      </div>
+    </section>
+
+    <!-- 第六章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.06</span>
+        <h2 class="chapter-title">穹顶与千佛</h2>
+      </div>
+      <p>抬头，是整个后室的穹顶。砂岩穹顶下，四壁密布千佛龛——小到只有手掌大的佛，一排排、一层层，把整面墙铺成一张"千佛棋盘"。</p>
+      <p>站在窟中央转一圈，你会被这种"重复"震撼：<em>不是重复本身，而是每一个重复里，都有一张不同的脸。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/09-cave9-ceiling.jpg" alt="第9窟后室穹顶与千佛龛" loading="lazy">
+        </div>
+        <p class="photo-caption">千佛龛铺成棋盘，一张张脸各不同<span>·</span>Cave 9 ceiling</p>
+        <div class="photo-note"><em>后室穹顶 + 千佛壁</em>——仰视视角，左侧洞壁是密集排列的千佛龛，中心为大龛；砂岩的粗糙肌理与静穆的重复，构成整窟最"密"的一段。</div>
+      </div>
+    </section>
+
+    <!-- 第七章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.07</span>
+        <h2 class="chapter-title">人间烟火里的菩萨</h2>
+      </div>
+      <p>最后一尊，是前室的弥勒菩萨。它披着蓝绿衣袍，胸前璎珞缀满，眉眼低垂——最动人的是：<em>它脚下是一排举着手机拍照的游客。</em></p>
+      <p>一千五百年前，人们抬头仰望它；一千五百年后，人们举着屏幕对准它。佛没变，变的只是仰望的方式。<em>这大概就是"人间"——佛在上，人在下，中间隔着一千五百年，和一束打不完的光。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/10-cave9-bodhisattva.jpg" alt="第9窟弥勒菩萨" loading="lazy">
+        </div>
+        <p class="photo-caption">神圣与人间，在同一个画面里<span>·</span>Cave 9 Bodhisattva</p>
+        <div class="photo-note"><em>前室弥勒菩萨立像</em>——华丽宝冠、胸前璎珞、蓝绿衣袍，右手施无畏印。暗部里游客举着手机的光，恰与千年前的仰望重叠成同一帧。</div>
+      </div>
     </section>
   </div>
 
   <!-- 尾声 -->
   <div class="epilogue reveal">
-    <p class="quote">比如北魏的匠人。<br>比如今天，按下六次快门的我。<br><strong>一个人来，一个人走——不孤独，是自由。</strong></p>
+    <p class="quote">比如北魏的匠人。<br>比如今天，按下十一次快门的我。<br><strong>一个人来，一个人走——不孤独，是自由。</strong></p>
   </div>
 
   <footer>
