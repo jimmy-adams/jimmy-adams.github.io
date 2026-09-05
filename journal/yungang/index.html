@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一个人的云冈 · Jimmy's Travel Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --ink: #2C2A26;
+      --ink-soft: #6B675F;
+      --sand: #A67B5B;
+      --sand-deep: #8A6248;
+      --moss: #7A8B6F;
+      --line: #E5E0D8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif SC', 'Inter', serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      background-image: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,.15) 40%, rgba(20,16,12,.78) 100%), url('photos/03-facade.jpg');
+      background-size: cover;
+      background-position: center 65%;
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px 64px;
+      color: #F5F1EA;
+    }
+    .hero-meta {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      color: #E8D9C4;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 10px 0 18px;
+      letter-spacing: 2px;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(245,241,234,.85);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      align-items: center;
+    }
+    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sand); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-family: 'Caveat', cursive;
+      color: rgba(245,241,234,.75);
+      font-size: 19px;
+      writing-mode: vertical-rl;
+      animation: floaty 2.6s ease-in-out infinite;
+    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    /* ---------- 主体 ---------- */
+    .journal { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; }
+
+    .prologue {
+      text-align: center;
+      padding: 26px 0 54px;
+    }
+    .prologue .ornament { font-size: 22px; color: var(--sand); letter-spacing: 10px; }
+    .prologue p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      margin-top: 18px;
+      font-style: normal;
+    }
+    .prologue .hand {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--sand-deep);
+      display: block;
+      margin-top: 14px;
+    }
+
+    section.chapter { margin: 0 0 84px; }
+
+    .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+    .chapter-no {
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      color: var(--sand);
+      white-space: nowrap;
+    }
+    .chapter-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 3px;
+    }
+    .chapter-title::after {
+      content: '';
+      display: block;
+      width: 44px; height: 2px;
+      background: var(--sand);
+      margin-top: 10px;
+      opacity: .65;
+    }
+
+    .chapter p { margin-bottom: 20px; font-size: 16.5px; }
+    .chapter p em { font-style: normal; color: var(--sand-deep); }
+
+    .photo-frame {
+      position: relative;
+      margin: 34px 0 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.35), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .photo-frame img { width: 100%; display: block; transition: transform 1.2s ease; }
+    .photo-frame:hover img { transform: scale(1.025); }
+    .photo-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .photo-caption span { color: var(--sand); margin: 0 6px; }
+
+    /* 入场动画 */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- 尾声 ---------- */
+    .epilogue {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 58px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .epilogue::before, .epilogue::after {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: var(--line);
+    }
+    .epilogue::before { top: 0; }
+    .epilogue::after { bottom: 0; }
+    .epilogue .quote {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(22px, 3.6vw, 30px);
+      font-style: italic;
+      line-height: 1.7;
+      letter-spacing: 1px;
+    }
+    .epilogue .quote strong { font-style: normal; color: var(--sand-deep); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 44px 20px 58px;
+      color: var(--ink-soft);
+    }
+    footer .hand-sign {
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      color: var(--ink);
+    }
+    footer .coords {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12.5px;
+      letter-spacing: 2.5px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    footer .foot-note {
+      font-size: 12.5px;
+      margin-top: 18px;
+      letter-spacing: 1px;
+    }
+    footer .foot-note a { color: var(--moss); text-decoration: none; border-bottom: 1px dotted var(--moss); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-meta">Aug. 29, 2026 · alone, on purpose</div>
+      <h1>一个人的云冈</h1>
+      <div class="hero-sub">
+        <span>山西 · 大同 · 云冈石窟</span>
+        <span class="dot"></span>
+        <span>40.111° N, 113.132° E</span>
+        <span class="dot"></span>
+        <span>晴，风把一千五百年吹得很轻</span>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll ↓</div>
+  </header>
+
+  <!-- 序 -->
+  <div class="journal">
+    <div class="prologue reveal">
+      <div class="ornament">❋ ❋ ❋</div>
+      <p>有人问我，为什么一个人来大同。<br>
+      我说，佛像等了一千五百年，不差我一个人；<br>
+      而一个不必向任何人解释的下午，我等了很久。</p>
+      <span class="hand">—— 独行记，始于武周山</span>
+    </div>
+
+    <!-- 第一章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.01</span>
+        <h2 class="chapter-title">十米的慈悲</h2>
+      </div>
+      <p>第三窟，灵岩寺洞，云冈最大的洞窟。主佛高约十米，趺坐在幽暗深处，右手施无畏印。我仰着头，脖子酸了也没舍得低下来。</p>
+      <p>一个人旅行的坏处，是没人帮你按快门；好处是——你干脆放弃了拍照，改用眼睛看。<em>十米的慈悲面前，取景框是个笑话。</em></p>
+      <div class="photo-frame">
+        <img src="photos/01-buddha.jpg" alt="第3窟主佛" loading="lazy">
+      </div>
+      <p class="photo-caption">仰拍到最后，敬畏是脖子发酸<span>·</span>Cave 3</p>
+      <p>两侧的胁侍菩萨头戴宝冠，身姿微侧，像随时会走下莲座。灯光斜斜掠过砂岩，一千五百年的风把石头摸得温润，佛的衣纹便像水一样，从肩头流到脚边。</p>
+    </section>
+
+    <!-- 第二章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.02</span>
+        <h2 class="chapter-title">崖壁上的蜂巢</h2>
+      </div>
+      <p>走出洞窟，阳光很盛。整面武周山南崖像一座巨大的蜂巢——洞窟层层叠叠，栈道在崖壁上折出细线，人走在上面，小得像一个标点。</p>
+      <div class="photo-frame">
+        <img src="photos/03-facade.jpg" alt="石窟外立面全景" loading="lazy">
+      </div>
+      <p class="photo-caption">把手机举过头顶，蓝天自己会构图<span>·</span>the cliff</p>
+      <p>身旁是一对对合影的游客。我拍完就走，没人催，也没人等。<em>孤独在这一刻不是形容词，是特权。</em></p>
+      <div class="photo-frame">
+        <img src="photos/04-cave-sky.jpg" alt="洞窟与蓝天" loading="lazy">
+      </div>
+      <p class="photo-caption">洞口盛着整片天空，像一只石头的眼睛<span>·</span>cave &amp; sky</p>
+    </section>
+
+    <!-- 第三章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.03</span>
+        <h2 class="chapter-title">凝固的音乐</h2>
+      </div>
+      <p>最后一面墙前，我站了很久。</p>
+      <p>伎乐天手持琵琶、横笛、排箫，衣带当风，层层叠叠挤在佛龛四周。北魏的工匠在坚硬的砂岩上，凿出了一场无声的演奏——没有指挥，没有听众，一凿就是几十年。</p>
+      <div class="photo-frame">
+        <img src="photos/05-carving.jpg" alt="浮雕与伎乐天" loading="lazy">
+      </div>
+      <p class="photo-caption">一千五百年前的旋律，至今没有停<span>·</span>the musicians</p>
+      <p>色彩褪得差不多了，只在凹处剩一点朱红与石青。凑近看是工艺，退后看是艺术；一千五百年后，一个独行的人站在墙前，忽然听见了。</p>
+    </section>
+
+    <!-- 补一张：三尊同框 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.04</span>
+        <h2 class="chapter-title">合十，然后道别</h2>
+      </div>
+      <p>离开前，我又回了一次第三窟。十米的慈悲看了两遍——第一遍看佛，第二遍看自己。</p>
+      <div class="photo-frame">
+        <img src="photos/02-trinity.jpg" alt="三尊像" loading="lazy">
+      </div>
+      <p class="photo-caption">主尊与胁侍，一坐千年<span>·</span>Cave 3, wider</p>
+      <p>日头偏西，崖壁被染成蜜糖色。五万尊造像，大半残缺：缺头的，断手的，坍成一堆的。<em>云冈从不假装完美。</em>它只是平静地陈列一个事实——时间从不留情，但总有人想在石头上留下点什么。</p>
+    </section>
+  </div>
+
+  <!-- 尾声 -->
+  <div class="epilogue reveal">
+    <p class="quote">比如北魏的匠人。<br>比如今天，按下六次快门的我。<br><strong>一个人来，一个人走——不孤独，是自由。</strong></p>
+  </div>
+
+  <footer>
+    <div class="hand-sign">Jimmy Adams</div>
+    <div class="coords">YUNGANG GROTTOES · DATONG · 40.111°N 113.132°E</div>
+    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a></p>
+  </footer>
+
+  <script>
+    // 轻量滚动入场
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

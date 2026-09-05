@@ -16,6 +16,16 @@
 
 const TRAVEL_DATA = [
   {
+    lat: 40.1111,
+    lng: 113.1323,
+    city: "Datong",
+    country: "China",
+    date: "2026-08",
+    emoji: "🪷",
+    story: "一个人的云冈石窟。十米高的主佛面前，取景框是个笑话——一个人旅行的好处，是可以按石头的节奏走路。五万尊造像大半残缺，云冈从不假装完美：时间从不留情，但总有人想在石头上留下点什么。<a href='journal/yungang/'>读日志 →</a>",
+    photo: "journal/yungang/photos/01-buddha.jpg"
+  },
+  {
     lat: 48.8566,
     lng: 2.3522,
     city: "Paris",
