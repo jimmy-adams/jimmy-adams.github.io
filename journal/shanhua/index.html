@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>大同古城之夜 · Jimmy's Travel Journal</title>
+  <title>善化寺的猫 · Jimmy's Travel Journal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
       --sand-deep: #8A6248;
       --moss: #7A8B6F;
       --line: #E5E0D8;
-      --night: #1E2A3A;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -28,15 +27,14 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ---------- Hero（夜景深蓝调） ---------- */
     .hero {
       position: relative;
       min-height: 92vh;
       display: flex;
       align-items: flex-end;
-      background-image: linear-gradient(180deg, rgba(10,14,22,.35) 0%, rgba(10,14,22,.2) 40%, rgba(10,14,22,.82) 100%), url('photos/05-blue-paifang.jpg');
+      background-image: linear-gradient(180deg, rgba(24,20,14,.3) 0%, rgba(24,20,14,.15) 40%, rgba(24,20,14,.8) 100%), url('photos/01-cat-doorway.jpg');
       background-size: cover;
-      background-position: center 60%;
+      background-position: center 30%;
     }
     .hero-inner {
       width: 100%;
@@ -48,7 +46,7 @@
     .hero-meta {
       font-family: 'Caveat', cursive;
       font-size: 26px;
-      color: #B8CCE0;
+      color: #E8D9C4;
       letter-spacing: 1px;
     }
     .hero h1 {
@@ -69,7 +67,7 @@
       gap: 8px 22px;
       align-items: center;
     }
-    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: #6E93C0; }
+    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sand); }
     .hero-back {
       position: absolute;
       top: 24px;
@@ -79,14 +77,14 @@
       letter-spacing: 1px;
       color: rgba(245,241,234,.9);
       text-decoration: none;
-      background: rgba(20,26,38,.45);
+      background: rgba(20,16,12,.45);
       padding: 8px 16px;
       border-radius: 999px;
       backdrop-filter: blur(6px);
       border: 1px solid rgba(245,241,234,.25);
-      transition: background .3s;
+      z-index: 5;
     }
-    .hero-back:hover { background: rgba(20,26,38,.7); }
+    .hero-back:hover { background: rgba(20,16,12,.7); }
     .hero-scroll {
       position: absolute;
       bottom: 22px;
@@ -99,19 +97,11 @@
     }
     @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 
-    /* ---------- 主体 ---------- */
     .journal { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; }
 
-    .prologue {
-      text-align: center;
-      padding: 26px 0 54px;
-    }
+    .prologue { text-align: center; padding: 26px 0 54px; }
     .prologue .ornament { font-size: 22px; color: var(--sand); letter-spacing: 10px; }
-    .prologue p {
-      font-size: 17px;
-      color: var(--ink-soft);
-      margin-top: 18px;
-    }
+    .prologue p { font-size: 17px; color: var(--ink-soft); margin-top: 18px; }
     .prologue .hand {
       font-family: 'Caveat', cursive;
       font-size: 24px;
@@ -123,12 +113,7 @@
     section.chapter { margin: 0 0 84px; }
 
     .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
-    .chapter-no {
-      font-family: 'Caveat', cursive;
-      font-size: 30px;
-      color: var(--sand);
-      white-space: nowrap;
-    }
+    .chapter-no { font-family: 'Caveat', cursive; font-size: 30px; color: var(--sand); white-space: nowrap; }
     .chapter-title {
       font-family: 'Noto Serif SC', serif;
       font-weight: 600;
@@ -178,7 +163,6 @@
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ---------- 尾声 ---------- */
     .epilogue {
       max-width: 680px;
       margin: 0 auto 30px;
@@ -204,11 +188,7 @@
     }
     .epilogue .quote strong { font-style: normal; color: var(--sand-deep); }
 
-    footer {
-      text-align: center;
-      padding: 44px 20px 58px;
-      color: var(--ink-soft);
-    }
+    footer { text-align: center; padding: 44px 20px 58px; color: var(--ink-soft); }
     footer .hand-sign { font-family: 'Caveat', cursive; font-size: 30px; color: var(--ink); }
     footer .coords {
       font-family: 'Inter', sans-serif;
@@ -228,14 +208,14 @@
   <header class="hero">
     <a class="hero-back" href="../">← Journal</a>
     <div class="hero-inner">
-      <div class="hero-meta">Aug. 28, 2026 · the night before the grottoes</div>
-      <h1>大同古城之夜</h1>
+      <div class="hero-meta">Aug. 28, 2026 · a slow morning</div>
+      <h1>善化寺的猫</h1>
       <div class="hero-sub">
-        <span>山西 · 大同 · 古城</span>
+        <span>山西 · 大同 · 善化寺</span>
         <span class="dot"></span>
-        <span>40.09° N, 113.30° E</span>
+        <span>40.087° N, 113.296° E</span>
         <span class="dot"></span>
-        <span>灯一亮，塞上的城把自己重新讲了一遍</span>
+        <span>辽代的藻井下，猫在打盹</span>
       </div>
     </div>
     <div class="hero-scroll">scroll ↓</div>
@@ -245,26 +225,33 @@
   <div class="journal">
     <div class="prologue reveal">
       <div class="ornament">❋ ❋ ❋</div>
-      <p>明天才去看石窟，今晚先进城。<br>
-      落日一沉，灯就全亮了——<br>
-      这座塞上的城，先把自己讲了一遍。</p>
-      <span class="hand">—— 夜游记，始于中轴线</span>
+      <p>进大同古城的第一站，是善化寺。<br>
+      辽金的殿宇还没看仔细，先被门口一位"工作人员"拦下——<br>
+      一只狸白猫，睡在山门边的石阶上，负责检阅每一位访客。</p>
+      <span class="hand">—— 慢游记，始于一只猫</span>
     </div>
 
     <!-- 第一章 -->
     <section class="chapter reveal">
       <div class="chapter-head">
         <span class="chapter-no">No.01</span>
-        <h2 class="chapter-title">华灯初上的古城</h2>
+        <h2 class="chapter-title">守门的猫</h2>
       </div>
-      <p>沿着中轴线走，琉璃屋顶一片片亮起来——金黄的殿宇、朱红的宫墙、蓝得发亮的琉璃飞檐。</p>
-      <p><em>白天它是石头，晚上它是灯。</em></p>
+      <p>善化寺俗称"南寺"，中国现存规模最大、布局最完整的辽金寺院。山门、三圣殿、大雄宝殿沿中轴线一字排开——梁思成当年考察时，对这里的斗拱与斜拱盛赞有加。</p>
+      <p>但这些都不急。<em>寺是要慢慢看的，猫也是。</em>它在殿前的老木门边卧成一团，听见快门声，耳朵动了一下，眼睛都没睁。</p>
       <div class="photo-card">
         <div class="photo-frame">
-          <img src="photos/01-avenue.jpg" alt="大同古城中轴线夜景" loading="lazy">
+          <img src="photos/01-cat-doorway.jpg" alt="殿门边的寺猫" loading="lazy">
         </div>
-        <p class="photo-caption">中轴线一路亮下去，像一条光的河<span>·</span>the night avenue</p>
-        <div class="photo-note"><em>古城中轴线夜景</em>——代王府一带，琉璃殿宇层层叠叠向纵深铺开，暖黄灯光下缀着红灯笼，街口牌坊写着"大同第一街"。</div>
+        <p class="photo-caption">检阅访客，是它的全职工作<span>·</span>the gatekeeper</p>
+        <div class="photo-note"><em>山门殿 · 寺猫</em>——狸白猫卧在古木门旁，斑驳的朱漆、磨亮的门钉，都是它打盹的背景板。古寺的"编外住持"，比谁都从容。</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/02-cat-threshold.jpg" alt="门槛边的猫" loading="lazy">
+        </div>
+        <p class="photo-caption">门槛内外，它都熟门熟路<span>·</span>the threshold</p>
+        <div class="photo-note"><em>殿前 · 门槛</em>——老门槛被几百年的脚步磨出包浆，猫在旁边眯眼晒太阳。人要跨过门槛去看佛，它不用——它就住在佛门口。</div>
       </div>
     </section>
 
@@ -272,16 +259,17 @@
     <section class="chapter reveal">
       <div class="chapter-head">
         <span class="chapter-no">No.02</span>
-        <h2 class="chapter-title">牌楼下的车流</h2>
+        <h2 class="chapter-title">头顶的天宫</h2>
       </div>
-      <p>走着走着就到了和阳街的牌楼下。金碧辉煌的斗拱牌楼，底下却是一整条喧嚣的现代街——白色大巴、电动车、穿行的人群，全从这座牌楼底下过。</p>
-      <p><em>古和今，不是割裂的两截，是叠在一起的同一张底片。</em></p>
+      <p>走进大雄宝殿，抬头的那一刻，会忘了呼吸。</p>
+      <p>当心间正上方，是一座辽代的斗八藻井——方形平綦嵌套八角穹顶，五十六朵微型斗拱分上下两层层层收拢，不用一颗铁钉，纯榫卯咬合。中心是黑漆底上沥粉贴金的双龙戏珠，四角雕凤凰，红绿金三色，是辽代原雕。</p>
+      <p>藻井正下方，坐着五方佛；两侧是金代的二十四诸天——三米半高的彩塑，文武各异，其中的吉祥天女被称为"东方蒙娜丽莎"。<em>辽金的匠人把天宫搬到了佛祖头顶。</em></p>
       <div class="photo-card">
         <div class="photo-frame">
-          <img src="photos/02-heyang-gate.jpg" alt="和阳街牌坊夜景" loading="lazy">
+          <img src="photos/03-caisson.jpg" alt="大雄宝殿斗八藻井" loading="lazy">
         </div>
-        <p class="photo-caption">牌楼底下，车流和人声都是新的<span>·</span>Heyang Street</p>
-        <div class="photo-note"><em>和阳街牌坊</em>——金碧辉煌的斗拱牌楼高悬"和陽街"匾额，楼下大巴的灯、电动车的身影、行人的剪影，全都罩在这一盏千年未熄的灯火下。</div>
+        <p class="photo-caption">五十六朵斗拱，托着一千年的天宫<span>·</span>the caisson</p>
+        <div class="photo-note"><em>大雄宝殿 · 斗八藻井</em>——方井嵌套八角，层层叠进，纯榫卯无钉；中心双龙戏珠贴金犹亮，绿框红底是矿物颜料的原色。站在佛坛前仰望，如见天宫穹顶。</div>
       </div>
     </section>
 
@@ -289,53 +277,36 @@
     <section class="chapter reveal">
       <div class="chapter-head">
         <span class="chapter-no">No.03</span>
-        <h2 class="chapter-title">水里的另一座城</h2>
+        <h2 class="chapter-title">石阶与红墙</h2>
       </div>
-      <p>最打动我的，是护城河上的倒影。红墙、蓝瓦、飞檐——整座古城在水里又长了一遍，清清楚楚，一丝不苟。</p>
-      <p>风一吹，倒影就碎了；风一停，它又慢慢拼回去。一个人站在岸边，看这座城在水里反复地碎、反复地拼，<em>忽然觉得今天的自己也是这样。</em></p>
+      <p>出殿，阳光正好。猫换了个地方，接着睡——从山门睡到了月台的石阶上，又从石阶睡到了红墙根。</p>
+      <p>我在院子里坐了很久。殿檐的影子慢慢移动，风把檐角的铃碰响一声，猫的耳朵跟着动一下，然后继续睡。<em>它对这座寺的了解，大概比所有讲解员加起来都多。</em></p>
       <div class="photo-card">
         <div class="photo-frame">
-          <img src="photos/03-moat-reflection.jpg" alt="护城河夜景倒影" loading="lazy">
+          <img src="photos/04-cat-steps-shicat.jpg" alt="石阶上的猫" loading="lazy">
         </div>
-        <p class="photo-caption">风一吹就碎，风一停又拼回去<span>·</span>the moat</p>
-        <div class="photo-note"><em>护城河 · 代王府倒影</em>——红墙配蓝琉璃飞檐，水中倒影完整如镜。对岸的蓝色琉璃牌楼与岸边散步的人群，一并沉进夜里。</div>
+        <p class="photo-caption">石阶被晒得温热，正好睡觉<span>·</span>the sun-warmed steps</p>
+        <div class="photo-note"><em>月台 · 石阶</em>——辽代的台基，明代的牌楼钟鼓亭，今天的阳光。猫在三者之间选了最舒服的一样：晒热的石头。</div>
       </div>
       <div class="photo-card">
         <div class="photo-frame">
-          <img src="photos/04-daiwangfu-night.jpg" alt="代王府夜景倒影" loading="lazy">
+          <img src="photos/05-cat-redwall.jpg" alt="红墙边的猫" loading="lazy">
         </div>
-        <p class="photo-caption">水里的城，比岸上的更完整<span>·</span>Daiwangfu</p>
-        <div class="photo-note"><em>代王府夜景</em>——红墙蓝瓦，水面倒影清晰如拓片，岸边游客举着相机，把这一刻也收进了自己的取景框。</div>
-      </div>
-    </section>
-
-    <!-- 第四章 -->
-    <section class="chapter reveal">
-      <div class="chapter-head">
-        <span class="chapter-no">No.04</span>
-        <h2 class="chapter-title">那盏蓝色的灯</h2>
-      </div>
-      <p>最后一站，是那座巨大的蓝色琉璃牌楼。白天看，它是灰扑扑的石头；到了夜里，蓝光一打，整座牌楼像从水里浮起来，透着一股不真实的蓝。</p>
-      <p>红衣的人群从它底下穿过，像一条红色的河，流过蓝色的桥。<em>我站在远处拍了很久，没舍得走。</em></p>
-      <div class="photo-card">
-        <div class="photo-frame">
-          <img src="photos/05-blue-paifang.jpg" alt="蓝色琉璃牌楼夜景" loading="lazy">
-        </div>
-        <p class="photo-caption">红衣的人流过蓝色的桥<span>·</span>the blue paifang</p>
-        <div class="photo-note"><em>蓝色琉璃牌楼</em>——巨大的斗拱牌楼通体泛着蓝光，匾额在夜色里泛着幽光，红衣人群穿行其下，冷与暖、古与今在此同框。</div>
+        <p class="photo-caption">红墙下打个盹，就是一千年<span>·</span>the red wall</p>
+        <div class="photo-note"><em>寺内 · 红墙</em>——斑驳的朱红墙皮，米黄的碎石地，猫的侧影。古寺的肃穆和猫的松弛，在同一画面里互不打扰。</div>
       </div>
     </section>
   </div>
 
   <!-- 尾声 -->
   <div class="epilogue reveal">
-    <p class="quote">先看一夜的灯，再看一天的佛。<br>城在水里反复地碎、反复地拼——<br><strong>这座城先亮了相，第二天，轮到一千五百年的佛出场。</strong></p>
+    <p class="quote">藻井上的龙，盘了一千年；<br>台阶上的猫，睡了一个下午。<br><strong>佛管永恒，猫管当下。</strong></p>
   </div>
 
   <footer>
     <div class="hand-sign">Jimmy Adams</div>
-    <div class="coords">DATONG ANCIENT CITY · 40.09°N 113.30°E</div>
-    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../shanhua/">上一篇：善化寺的猫 ←</a> · <a href="../yungang/">下一篇：一个人的云冈 →</a></p>
+    <div class="coords">SHANHUA TEMPLE · DATONG · 40.087°N 113.296°E</div>
+    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../datong-night/">下一篇：大同古城之夜 →</a></p>
   </footer>
 
   <script>
