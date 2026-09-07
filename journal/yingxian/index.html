@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>比朝代更老的木头 · Jimmy's Travel Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --ink: #2C2A26;
+      --ink-soft: #6B675F;
+      --sand: #A67B5B;
+      --sand-deep: #8A6248;
+      --moss: #7A8B6F;
+      --line: #E5E0D8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif SC', 'Inter', serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      background-image: linear-gradient(180deg, rgba(18,22,30,.28) 0%, rgba(18,22,30,.12) 40%, rgba(18,22,30,.8) 100%), url('photos/01-pagoda-north.jpg');
+      background-size: cover;
+      background-position: center 30%;
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px 64px;
+      color: #F5F1EA;
+    }
+    .hero-meta {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      color: #E8D9C4;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(40px, 7vw, 68px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 10px 0 18px;
+      letter-spacing: 2px;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(245,241,234,.85);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      align-items: center;
+    }
+    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sand); }
+    .hero-back {
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      letter-spacing: 1px;
+      color: rgba(245,241,234,.9);
+      text-decoration: none;
+      background: rgba(20,16,12,.45);
+      padding: 8px 16px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(245,241,234,.25);
+      z-index: 5;
+    }
+    .hero-back:hover { background: rgba(20,16,12,.7); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-family: 'Caveat', cursive;
+      color: rgba(245,241,234,.75);
+      font-size: 19px;
+      writing-mode: vertical-rl;
+      animation: floaty 2.6s ease-in-out infinite;
+    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    .journal { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; }
+
+    .prologue { text-align: center; padding: 26px 0 54px; }
+    .prologue .ornament { font-size: 22px; color: var(--sand); letter-spacing: 10px; }
+    .prologue p { font-size: 17px; color: var(--ink-soft); margin-top: 18px; }
+    .prologue .hand {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--sand-deep);
+      display: block;
+      margin-top: 14px;
+    }
+
+    section.chapter { margin: 0 0 84px; }
+
+    .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+    .chapter-no { font-family: 'Caveat', cursive; font-size: 30px; color: var(--sand); white-space: nowrap; }
+    .chapter-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 3px;
+    }
+    .chapter-title::after {
+      content: '';
+      display: block;
+      width: 44px; height: 2px;
+      background: var(--sand);
+      margin-top: 10px;
+      opacity: .65;
+    }
+
+    .chapter p { margin-bottom: 20px; font-size: 16.5px; }
+    .chapter p em { font-style: normal; color: var(--sand-deep); }
+
+    .photo-card { margin: 34px 0 26px; }
+    .photo-frame {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.35), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .photo-frame img { width: 100%; display: block; transition: transform 1.2s ease; }
+    .photo-frame:hover img { transform: scale(1.025); }
+    .photo-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .photo-caption span { color: var(--sand); margin: 0 6px; }
+    .photo-note {
+      background: rgba(244,238,228,.6);
+      border-left: 2px solid var(--sand);
+      padding: 14px 20px;
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink);
+      border-radius: 0 4px 4px 0;
+    }
+    .photo-note em { font-style: normal; color: var(--sand-deep); font-weight: 600; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .epilogue {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 58px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .epilogue::before, .epilogue::after {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: var(--line);
+    }
+    .epilogue::before { top: 0; }
+    .epilogue::after { bottom: 0; }
+    .epilogue .quote {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(22px, 3.6vw, 30px);
+      font-style: italic;
+      line-height: 1.7;
+      letter-spacing: 1px;
+    }
+    .epilogue .quote strong { font-style: normal; color: var(--sand-deep); }
+
+    footer { text-align: center; padding: 44px 20px 58px; color: var(--ink-soft); }
+    footer .hand-sign { font-family: 'Caveat', cursive; font-size: 30px; color: var(--ink); }
+    footer .coords {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12.5px;
+      letter-spacing: 2.5px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    footer .foot-note { font-size: 12.5px; margin-top: 18px; letter-spacing: 1px; }
+    footer .foot-note a { color: var(--moss); text-decoration: none; border-bottom: 1px dotted var(--moss); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <a class="hero-back" href="../">← Journal</a>
+    <div class="hero-inner">
+      <div class="hero-meta">Aug. 29, 2026 · on the way home</div>
+      <h1>比朝代更老的木头</h1>
+      <div class="hero-sub">
+        <span>山西 · 朔州 · 应县 佛宫寺释迦塔</span>
+        <span class="dot"></span>
+        <span>39.570° N, 113.190° E</span>
+        <span class="dot"></span>
+        <span>没有一根钉子的九百七十年</span>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll ↓</div>
+  </header>
+
+  <!-- 序 -->
+  <div class="journal">
+    <div class="prologue reveal">
+      <div class="ornament">❋ ❋ ❋</div>
+      <p>从大同出来，往南一个多小时，快到应县的时候，它先出现了——<br>
+      平原上一座深色的木塔，比想象中大，也比想象中旧。<br>
+      第一眼没什么诗意，就是心里咯噔一下：<br>
+      这么大一个木头东西，怎么就敢在华北平原上，站一千年。</p>
+      <span class="hand">—— 它今年九百七十岁，比它脚下的一切都老</span>
+    </div>
+
+    <!-- 第一章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.01</span>
+        <h2 class="chapter-title">木头的花</h2>
+      </div>
+      <p>走近了才发现，整座塔是由"花"组成的。五层六檐，每一层檐下都挤满斗拱——同一个逻辑，长出五十多种样子，全塔将近五百朵，一朵一朵全是木头，<em>不用一根钉子</em>。资料里叫它"斗拱博物馆"，走近看，更像走进一片木头的花田。</p>
+      <p>1933 年，梁思成来测绘，在给林徽因的信里写：绝对的 overwhelming，好到令人叫绝，喘不出一口气来半天。九十年后站在同一片屋檐下，脖子仰到酸，症状一模一样。</p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/02-dougong.jpg" alt="木塔斗拱仰视" loading="lazy">
+        </div>
+        <p class="photo-caption">仰头数木头，数到脖子酸，一朵也没数清<span>·</span>the brackets</p>
+        <div class="photo-note"><em>外檐 · 斗拱</em>——佛宫寺释迦塔建于辽清宁二年（1056 年），高 67.31 米，世界现存最古老、最高的纯木结构楼阁式建筑。全塔 54 种斗拱、近 500 朵，榫卯咬合，不用一钉一铆。1933 年梁思成给林徽因写信："绝对的 Overwhelming，好到令人叫绝，喘不出一口气来半天。"</div>
+      </div>
+    </section>
+
+    <!-- 第二章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.02</span>
+        <h2 class="chapter-title">佛顶着一个辽代的天花板</h2>
+      </div>
+      <p>塔只让人上一层。门一推开，先看见的不是佛的脸，是佛的头顶——上方悬着一座八角藻井，像一口倒扣的井，井口接着天花板。<em>佛在这口井下面，坐了九百七十年。</em></p>
+      <p>他太高了，11 米，进了殿门就得一直仰着脖子。左手与愿印，右手说法印，须弥座底下有八个力士扛着，每个的表情都有点咬牙切齿。两侧墙上的壁画里，供养人队伍里混着三位萧姓皇后——大辽真正的掌门人们，排队排在佛的后面。</p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/03-buddha-caisson.jpg" alt="藻井下的佛像仰视" loading="lazy">
+        </div>
+        <p class="photo-caption">他头顶上的天花板，是辽代的<span>·</span>the ceiling above him</p>
+        <div class="photo-note"><em>一层 · 藻井</em>——释迦牟尼像头顶的斗八藻井，八角叠涩收顶，与殿内六尊趺坐佛壁画（庄严劫三佛、贤劫三佛）同为辽代原构原塑。护栏是后人加的，天花板不是。</div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/04-buddha.jpg" alt="一层释迦牟尼大佛正面" loading="lazy">
+        </div>
+        <p class="photo-caption">他坐了九百七十年，第 970 年我在<span>·</span>the 11-meter buddha</p>
+        <div class="photo-note"><em>一层 · 释迦牟尼像</em>——辽代原塑，高约 11 米，左手与愿印、右手说法印，须弥座由八个力士托举。1974 年，人们在塔内佛像中发现两颗佛牙舍利与大量辽代经卷——塔里藏的比看见的多。</div>
+      </div>
+    </section>
+
+    <!-- 第三章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.03</span>
+        <h2 class="chapter-title">石头也开了花</h2>
+      </div>
+      <p>塔后的大雄宝殿是清代重修的，殿前立着一座八角石经幢，玻璃罩子罩着，底座上落满游客投的硬币。经幢是辽代的，和塔同岁——一柱石头，顶上雕一圈莲蓬样的莲花。<em>九百多年，石头也开花了。</em></p>
+      <p>投硬币的大概都在许愿。我站在它面前想的是另一件事：全寺上下，殿是清代重建的，钟鼓楼是明代的，只有这座塔，和这柱石头，是从大辽原样活到今天的——像两个活过一切的老朋友，谁也不用安慰谁。</p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/05-jingchuang.jpg" alt="辽代石经幢" loading="lazy">
+        </div>
+        <p class="photo-caption">石头也开了花<span>·</span>the lotus of stone</p>
+        <div class="photo-note"><em>大雄宝殿前 · 石经幢</em>——辽代原物，与释迦塔同龄，八角形，幢顶雕莲。佛宫寺初名宝宫禅寺，金代增修，元延佑二年（1315）改称佛宫寺；现存建筑中惟释迦塔为辽代遗构。</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 尾声 -->
+  <div class="epilogue reveal">
+    <p style="font-size:16.5px; color:var(--ink-soft); margin-bottom:34px;">
+      出来时走的是北门。回头看，塔身上那几块匾正好都在：<br>
+      从下往上——法海慧莲，乾隆五十一年；永镇金城，光绪三十一年；<br>
+      中立不倚，雍正四年；灵山未散，民国十八年。<br>
+      字越挂越新，塔越站越老。<br><br>
+      南面高处还有几块更凶的："峻极神工"是朱棣写的，"天下奇观"是朱厚照写的，<br>
+      "释迦塔"三个大字是金代的，公元 1194 年，塔的本名凭证。<br>
+      九百七十年，四十多次地震，好几场战火，二层以上已经慢慢歪了，<br>
+      讨论修缮的会开了一轮又一轮，谁也不敢先动它。<br>
+      它不需要谁动，它只需要站着。
+    </p>
+    <p class="quote">没有一根钉子，<br><strong>它一个人站了九百七十年。</strong></p>
+  </div>
+
+  <footer>
+    <div class="hand-sign">Jimmy Adams</div>
+    <div class="coords">FOGONG TEMPLE SAKYAMUNI PAGODA · YINGXIAN · 39.570°N 113.190°E</div>
+    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../yungang/">上一篇：一个人的云冈 ←</a></p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
