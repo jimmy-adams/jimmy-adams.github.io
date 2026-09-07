@@ -10,8 +10,8 @@
  */
 (function () {
   // ↓↓↓ 部署 Cloudflare Worker 后，把这里换成你的 workers.dev 地址 ↓↓↓
-  var API = 'https://jimmy-stats.YOUR-SUBDOMAIN.workers.dev';
-  // ↑↑↑ 例：https://jimmy-stats.jimmy-adams.workers.dev
+  var API = 'https://jimmy-stats.adam-ji.workers.dev';
+  // ↑↑↑ 部署后自动填入：Cloudflare Worker 地址
 
   var elUV = document.getElementById('stat-uv');
   var elPV = document.getElementById('stat-pv');
