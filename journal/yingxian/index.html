@@ -201,6 +201,10 @@
     footer .foot-note { font-size: 12.5px; margin-top: 18px; letter-spacing: 1px; }
     footer .foot-note a { color: var(--moss); text-decoration: none; border-bottom: 1px dotted var(--moss); }
   </style>
+  <style>
+    .visits { margin-top: 16px; font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 12.5px; letter-spacing: 1px; color: #6B675F; }
+  </style>
 </head>
 <body>
 
@@ -312,7 +316,8 @@
     <div class="hand-sign">Jimmy Adams</div>
     <div class="coords">FOGONG TEMPLE SAKYAMUNI PAGODA · YINGXIAN · 39.570°N 113.190°E</div>
     <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../shanhua/">下一篇：善化寺的猫 →</a></p>
-  </footer>
+      <div id="visit-count" class="visits"></div>
+</footer>
 
   <script>
     const io = new IntersectionObserver((entries) => {
@@ -320,5 +325,6 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
+  <script src="/assets/stats.js" defer></script>
 </body>
 </html>
