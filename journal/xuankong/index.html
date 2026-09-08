@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>挂在悬崖上的一千五百年 · Jimmy's Travel Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --ink: #2C2A26;
+      --ink-soft: #6B675F;
+      --sand: #A67B5B;
+      --sand-deep: #8A6248;
+      --moss: #7A8B6F;
+      --line: #E5E0D8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif SC', 'Inter', serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      background-image: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,.15) 40%, rgba(20,16,12,.78) 100%), url('photos/02-hanging-view.jpg');
+      background-size: cover;
+      background-position: center 55%;
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px 64px;
+      color: #F5F1EA;
+    }
+    .hero-meta {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      color: #E8D9C4;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 10px 0 18px;
+      letter-spacing: 2px;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(245,241,234,.85);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      align-items: center;
+    }
+    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sand); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-family: 'Caveat', cursive;
+      color: rgba(245,241,234,.75);
+      font-size: 19px;
+      writing-mode: vertical-rl;
+      animation: floaty 2.6s ease-in-out infinite;
+    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    /* ---------- 主体 ---------- */
+    .journal { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; }
+
+    .prologue { text-align: center; padding: 26px 0 54px; }
+    .prologue .ornament { font-size: 22px; color: var(--sand); letter-spacing: 10px; }
+    .prologue p { font-size: 17px; color: var(--ink-soft); margin-top: 18px; }
+    .prologue .hand {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--sand-deep);
+      display: block;
+      margin-top: 14px;
+    }
+
+    .part-divider {
+      text-align: center;
+      margin: 0 0 72px;
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .part-divider .cn { font-family: 'Caveat', cursive; font-size: 24px; color: var(--sand); }
+    .part-divider .en { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; color: var(--ink-soft); margin-top: 6px; }
+
+    section.chapter { margin: 0 0 84px; }
+    .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+    .chapter-no { font-family: 'Caveat', cursive; font-size: 30px; color: var(--sand); white-space: nowrap; }
+    .chapter-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 3px;
+    }
+    .chapter-title::after {
+      content: '';
+      display: block;
+      width: 44px; height: 2px;
+      background: var(--sand);
+      margin-top: 10px;
+      opacity: .65;
+    }
+    .chapter p { margin-bottom: 20px; font-size: 16.5px; }
+    .chapter p em { font-style: normal; color: var(--sand-deep); }
+
+    /* vlog 视频 */
+    .vlog-wrap { margin: 34px 0 30px; }
+    .vlog-wrap video {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      background: #14100C;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.4), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .vlog-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .vlog-caption span { color: var(--sand); margin: 0 6px; }
+
+    /* 图文卡片 */
+    .photo-card { margin: 34px 0 26px; }
+    .photo-frame {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.35), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .photo-frame img { width: 100%; display: block; transition: transform 1.2s ease; }
+    .photo-frame:hover img { transform: scale(1.025); }
+    .photo-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .photo-caption span { color: var(--sand); margin: 0 6px; }
+    .photo-note {
+      background: rgba(244,238,228,.6);
+      border-left: 2px solid var(--sand);
+      padding: 14px 20px;
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink);
+      border-radius: 0 4px 4px 0;
+    }
+    .photo-note em { font-style: normal; color: var(--sand-deep); font-weight: 600; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- 尾声 ---------- */
+    .epilogue {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 58px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .epilogue::before, .epilogue::after {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: var(--line);
+    }
+    .epilogue::before { top: 0; }
+    .epilogue::after { bottom: 0; }
+    .epilogue .quote {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(22px, 3.6vw, 30px);
+      font-style: italic;
+      line-height: 1.7;
+      letter-spacing: 1px;
+    }
+    .epilogue .quote strong { font-style: normal; color: var(--sand-deep); }
+
+    /* ---------- Footer ---------- */
+    footer { text-align: center; padding: 44px 20px 58px; color: var(--ink-soft); }
+    footer .hand-sign { font-family: 'Caveat', cursive; font-size: 30px; color: var(--ink); }
+    footer .coords {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12.5px;
+      letter-spacing: 2.5px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    footer .foot-note { font-size: 12.5px; margin-top: 18px; letter-spacing: 1px; }
+    footer .foot-note a { color: var(--moss); text-decoration: none; border-bottom: 1px dotted var(--moss); }
+  </style>
+  <style>
+    .visits { margin-top: 16px; font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 12.5px; letter-spacing: 1px; color: #6B675F; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <a class="hero-back" href="../" style="position:absolute;top:24px;left:28px;font-family:Inter,sans-serif;font-size:13.5px;letter-spacing:1px;color:rgba(245,241,234,.9);text-decoration:none;background:rgba(20,16,12,.45);padding:8px 16px;border-radius:999px;backdrop-filter:blur(6px);border:1px solid rgba(245,241,234,.25);z-index:5;">← Journal</a>
+    <div class="hero-inner">
+      <div class="hero-meta">Aug. 30, 2026 · 一座挂在悬崖上的寺</div>
+      <h1>悬空寺</h1>
+      <div class="hero-sub">
+        <span>山西 · 大同 · 浑源 恒山金龙峡</span>
+        <span class="dot"></span>
+        <span>39.664° N, 113.706° E</span>
+        <span class="dot"></span>
+        <span>风从峡谷里吹上来</span>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll ↓</div>
+  </header>
+
+  <div class="journal">
+    <!-- 序 -->
+    <div class="prologue reveal">
+      <div class="ornament">❋ ❋ ❋</div>
+      <p>去之前我以为，它只是"挂在山上的一座庙"。<br>
+      到了才明白——它不是建在山上，<br>
+      是<em>从山里长出来的</em>。</p>
+      <span class="hand">—— 恒山之下，金龙峡畔</span>
+    </div>
+
+    <!-- vlog -->
+    <div class="vlog-wrap reveal">
+      <video src="film.mp4" controls muted playsinline preload="metadata" poster="photos/02-hanging-view.jpg"></video>
+      <p class="photo-caption">三十秒，一千五百年<span>·</span>the vlog</p>
+    </div>
+
+    <!-- ============ 上篇 · 挂在崖上 ============ -->
+    <div class="part-divider reveal">
+      <div class="cn">Hanging · on the cliff</div>
+      <div class="en">半插飞梁为基 · 一千五百年不落</div>
+    </div>
+
+    <!-- 第一章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.01</span>
+        <h2 class="chapter-title">回廊深处</h2>
+      </div>
+      <p>上山的路很窄，栈道贴着崖壁走，人得侧着身。木廊宽不过一米，脚下是空的——隔着木板，能听见金龙峡的风在底下穿过去。</p>
+      <p>我用手扶着崖壁走，掌心是凉的粗糙的石头。<em>一千五百年前的工匠，大概也是这样扶着走过去的。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/01-corridor.jpg" alt="悬空寺回廊" loading="lazy">
+        </div>
+        <p class="photo-caption">一步宽的回廊，走了整整一千五百年<span>·</span>the corridor</p>
+        <div class="photo-note"><em>悬空寺栈道回廊</em>——木廊紧贴崖壁，宽不盈米，外侧仅以木栏相护。行走其上，脚下即深峡。</div>
+      </div>
+    </section>
+
+    <!-- 第二章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.02</span>
+        <h2 class="chapter-title">半插在峭壁里</h2>
+      </div>
+      <p>整座寺最狠的地方，是它的"地基"——<em>没有地基</em>。</p>
+      <p>工匠把横梁的一端深深插进凿好的石孔里，另一端悬在空中，再在上面立柱、架梁、铺板、盖殿。所谓的"支柱"，多半并不真承重，真正吃力的是那些看不见的、插进岩石深处的横木。</p>
+      <p>当地人说"悬空寺，半天高，三根马尾空中吊"。抬头看，那些细柱确实晃晃悠悠——可它已经这样晃了一千五百年。</p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/02-hanging-view.jpg" alt="悬空寺挂壁全景" loading="lazy">
+        </div>
+        <p class="photo-caption">它挂在那里，像山自己长出来的一块木头<span>·</span>hanging on the cliff</p>
+        <div class="photo-note"><em>悬空寺全景</em>——殿阁半嵌于金龙峡西崖，距谷底约五十米。以"半插飞梁"为基，木柱为撑，层层叠叠贴崖而建。</div>
+      </div>
+      <p>李白当年走到这里，写下"壮观"两个字，觉得不够，又在"壮"字上多加了一点。徐霞客说它是<em>"天下巨观"</em>。两个见过太多山河的人，在同一座小庙前词穷。</p>
+    </section>
+
+    <!-- 第三章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.03</span>
+        <h2 class="chapter-title">一千五百年</h2>
+      </div>
+      <p>北魏太和十五年，公元 491 年，它开始挂在崖壁上。此后朝代换了一轮又一轮，峡谷里的水流了又干，它没掉下来。</p>
+      <p>我站在对岸看它。峡谷很宽，寺很小，小得像崖壁上的一处纹理。<em>可就是这样一处纹理，比山下所有的城池都活得久。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/03-canyon-wide.jpg" alt="金龙峡全景与悬空寺" loading="lazy">
+        </div>
+        <p class="photo-caption">峡谷很宽，它很小，时间很长<span>·</span>the canyon</p>
+        <div class="photo-note"><em>金龙峡全景</em>——两岸崖壁对峙，悬空寺嵌于右侧崖腰。谷底溪流细如一线，更衬出崖壁的高峻与建筑的奇险。</div>
+      </div>
+      <p>最奇妙的是殿内的<em>三教殿</em>：释迦牟尼、老子、孔子，三位并排坐在一起，供在同一炷香下。全世界大概找不出第二个地方，把这三种截然不同的智慧，塞进同一间不到二十平米的小殿里。</p>
+      <p>吵了一千多年的事，在这座悬在半空的小庙里，和解了。</p>
+    </section>
+
+    <!-- 第四章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.04</span>
+        <h2 class="chapter-title">檐下</h2>
+      </div>
+      <p>最后我没有再往高处走，就在檐下站了一会儿。</p>
+      <p>风从峡谷里一路吹上来，穿过飞檐，把檐角的风铃摇得很轻。阳光斜斜照在琉璃瓦上，反出一小片一小片的暖光。</p>
+      <p>身后的殿里，有人在小声许愿。我没许——<em>一座在悬崖上站稳了一千五百年的建筑，本身就是最好的那句祝词。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="photos/04-roof-tiles.jpg" alt="悬空寺檐顶琉璃瓦" loading="lazy">
+        </div>
+        <p class="photo-caption">风从峡谷上来，檐角铃响了一声<span>·</span>under the eaves</p>
+        <div class="photo-note"><em>殿宇檐顶</em>——琉璃瓦与飞檐在斜阳下泛出暖光。檐角风铃随风轻响，是这座悬空建筑最日常的呼吸。</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 尾声 -->
+  <div class="epilogue reveal">
+    <p class="quote">它不靠山，也不靠水。<br>它靠的是一千五百年前，<br>那些把自己吊在半空里、一凿一凿凿进去的人。<br><strong>悬空寺不悬——悬的是人心，稳的是手艺。</strong></p>
+  </div>
+
+  <footer>
+    <div class="hand-sign">Jimmy Adams</div>
+    <div class="coords">XUANKONG TEMPLE · HUNYUAN · 39.664°N 113.706°E</div>
+    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../yungang/">上一篇：一个人的云冈 ←</a></p>
+    <div id="visit-count" class="visits"></div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+  <script src="/assets/stats.js" defer></script>
+</body>
+</html>
