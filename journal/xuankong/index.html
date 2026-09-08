@@ -125,15 +125,64 @@
     .chapter p { margin-bottom: 20px; font-size: 16.5px; }
     .chapter p em { font-style: normal; color: var(--sand-deep); }
 
-    /* vlog 视频 */
+    /* 图片蒙太奇 slideshow */
     .vlog-wrap { margin: 34px 0 30px; }
-    .vlog-wrap video {
+    .slideshow {
+      position: relative;
       width: 100%;
-      display: block;
+      aspect-ratio: 16 / 9;
       border-radius: 4px;
+      overflow: hidden;
       background: #14100C;
       box-shadow: 0 14px 38px -14px rgba(44,42,38,.4), 0 2px 8px rgba(44,42,38,.08);
     }
+    .slideshow .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+    .slideshow .slide.active { opacity: 1; }
+    .slideshow .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1);
+      transition: transform 7s linear;
+    }
+    .slideshow .slide.active img { transform: scale(1.08); }
+    .slideshow-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 52px 22px 26px;
+      background: linear-gradient(to top, rgba(20,16,12,.74), rgba(20,16,12,.25) 55%, transparent);
+      color: #F5F1EA;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 17px;
+      letter-spacing: 2px;
+      text-align: center;
+      opacity: 1;
+      transition: opacity .5s ease;
+      pointer-events: none;
+    }
+    .slideshow-dots {
+      position: absolute;
+      bottom: 11px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+    .slideshow-dots span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(245,241,234,.45);
+      cursor: pointer;
+      transition: background .3s ease, transform .3s ease;
+    }
+    .slideshow-dots span.on { background: #F5F1EA; transform: scale(1.35); }
     .vlog-caption {
       font-family: 'Caveat', cursive;
       font-size: 22px;
@@ -249,10 +298,17 @@
       <span class="hand">—— 恒山之下，金龙峡畔</span>
     </div>
 
-    <!-- vlog -->
+    <!-- 图片蒙太奇 -->
     <div class="vlog-wrap reveal">
-      <video src="film.mp4" controls muted playsinline preload="metadata" poster="photos/02-hanging-view.jpg"></video>
-      <p class="photo-caption">三十秒，一千五百年<span>·</span>the vlog</p>
+      <div class="slideshow" id="slideshow">
+        <div class="slide active"><img src="photos/01-corridor.jpg" alt="回廊深处"></div>
+        <div class="slide"><img src="photos/02-hanging-view.jpg" alt="半插在峭壁里" loading="lazy"></div>
+        <div class="slide"><img src="photos/03-canyon-wide.jpg" alt="一千五百年" loading="lazy"></div>
+        <div class="slide"><img src="photos/04-roof-tiles.jpg" alt="檐下" loading="lazy"></div>
+        <div class="slideshow-caption" id="slide-caption">悬空寺 · 回廊深处</div>
+        <div class="slideshow-dots" id="slide-dots"></div>
+      </div>
+      <p class="photo-caption">四张照片，一千五百年<span>·</span>a montage</p>
     </div>
 
     <!-- ============ 上篇 · 挂在崖上 ============ -->
@@ -353,6 +409,48 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // 图片蒙太奇：交叉淡入 + 缓慢推近
+    (function () {
+      const box = document.getElementById('slideshow');
+      if (!box) return;
+      const slides = box.querySelectorAll('.slide');
+      const cap = document.getElementById('slide-caption');
+      const dotsBox = document.getElementById('slide-dots');
+      const captions = [
+        '悬空寺 · 回廊深处',
+        '半插在峭壁里',
+        '一千五百年，它一直挂在这里',
+        '一个人站在檐下，风从峡谷里吹上来'
+      ];
+      let idx = 0, timer = null;
+
+      slides.forEach((_, i) => {
+        const d = document.createElement('span');
+        if (i === 0) d.className = 'on';
+        d.addEventListener('click', () => { go(i); restart(); });
+        dotsBox.appendChild(d);
+      });
+      const dots = dotsBox.querySelectorAll('span');
+
+      function go(n) {
+        slides[idx].classList.remove('active');
+        dots[idx].classList.remove('on');
+        idx = (n + slides.length) % slides.length;
+        slides[idx].classList.add('active');
+        dots[idx].classList.add('on');
+        cap.style.opacity = 0;
+        setTimeout(() => { cap.textContent = captions[idx]; cap.style.opacity = 1; }, 320);
+      }
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => go(idx + 1), 4600);
+      }
+
+      restart();
+      box.addEventListener('mouseenter', () => clearInterval(timer));
+      box.addEventListener('mouseleave', restart);
+    })();
   </script>
   <script src="/assets/stats.js" defer></script>
 </body>
