@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>城市里的一小片绿 · Jimmy's Travel Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --ink: #2C2A26;
+      --ink-soft: #6B675F;
+      --sand: #A67B5B;
+      --sand-deep: #8A6248;
+      --moss: #7A8B6F;
+      --line: #E5E0D8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif SC', 'Inter', serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      background-image: linear-gradient(180deg, rgba(20,16,12,.25) 0%, rgba(20,16,12,.15) 40%, rgba(20,16,12,.78) 100%), url('poster.jpg');
+      background-size: cover;
+      background-position: center 50%;
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px 64px;
+      color: #F5F1EA;
+    }
+    .hero-meta {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      color: #E8D9C4;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 10px 0 18px;
+      letter-spacing: 2px;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: rgba(245,241,234,.85);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      align-items: center;
+    }
+    .hero-sub .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--sand); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-family: 'Caveat', cursive;
+      color: rgba(245,241,234,.75);
+      font-size: 19px;
+      writing-mode: vertical-rl;
+      animation: floaty 2.6s ease-in-out infinite;
+    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    /* ---------- 主体 ---------- */
+    .journal { max-width: 680px; margin: 0 auto; padding: 72px 24px 40px; }
+
+    .prologue { text-align: center; padding: 26px 0 54px; }
+    .prologue .ornament { font-size: 22px; color: var(--sand); letter-spacing: 10px; }
+    .prologue p { font-size: 17px; color: var(--ink-soft); margin-top: 18px; }
+    .prologue .hand {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--sand-deep);
+      display: block;
+      margin-top: 14px;
+    }
+
+    .part-divider {
+      text-align: center;
+      margin: 0 0 72px;
+      padding: 26px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .part-divider .cn { font-family: 'Caveat', cursive; font-size: 24px; color: var(--sand); }
+    .part-divider .en { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; color: var(--ink-soft); margin-top: 6px; }
+
+    section.chapter { margin: 0 0 84px; }
+    .chapter-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; }
+    .chapter-no { font-family: 'Caveat', cursive; font-size: 30px; color: var(--sand); white-space: nowrap; }
+    .chapter-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 3px;
+    }
+    .chapter-title::after {
+      content: '';
+      display: block;
+      width: 44px; height: 2px;
+      background: var(--sand);
+      margin-top: 10px;
+      opacity: .65;
+    }
+    .chapter p { margin-bottom: 20px; font-size: 16.5px; }
+    .chapter p em { font-style: normal; color: var(--sand-deep); }
+
+    /* 视频 */
+    .vlog-wrap { margin: 34px 0 30px; }
+    .vlog-wrap video {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      background: #14100C;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.4), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .vlog-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .vlog-caption span { color: var(--sand); margin: 0 6px; }
+
+    .photo-card { margin: 34px 0 26px; }
+    .photo-frame {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 38px -14px rgba(44,42,38,.35), 0 2px 8px rgba(44,42,38,.08);
+    }
+    .photo-frame img { width: 100%; display: block; transition: transform 1.2s ease; }
+    .photo-frame:hover img { transform: scale(1.025); }
+    .photo-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin: 14px 0 0;
+    }
+    .photo-caption span { color: var(--sand); margin: 0 6px; }
+    .photo-note {
+      background: rgba(244,238,228,.6);
+      border-left: 2px solid var(--sand);
+      padding: 14px 20px;
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink);
+      border-radius: 0 4px 4px 0;
+    }
+    .photo-note em { font-style: normal; color: var(--sand-deep); font-weight: 600; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- 尾声 ---------- */
+    .epilogue {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      padding: 58px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .epilogue::before, .epilogue::after {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: var(--line);
+    }
+    .epilogue::before { top: 0; }
+    .epilogue::after { bottom: 0; }
+    .epilogue .quote {
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      font-size: clamp(22px, 3.6vw, 30px);
+      font-style: italic;
+      line-height: 1.7;
+      letter-spacing: 1px;
+    }
+    .epilogue .quote strong { font-style: normal; color: var(--sand-deep); }
+
+    /* ---------- Footer ---------- */
+    footer { text-align: center; padding: 44px 20px 58px; color: var(--ink-soft); }
+    footer .hand-sign { font-family: 'Caveat', cursive; font-size: 30px; color: var(--ink); }
+    footer .coords {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12.5px;
+      letter-spacing: 2.5px;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    footer .foot-note { font-size: 12.5px; margin-top: 18px; letter-spacing: 1px; }
+    footer .foot-note a { color: var(--moss); text-decoration: none; border-bottom: 1px dotted var(--moss); }
+  </style>
+  <style>
+    .visits { margin-top: 16px; font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 12.5px; letter-spacing: 1px; color: #6B675F; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <a class="hero-back" href="../" style="position:absolute;top:24px;left:28px;font-family:Inter,sans-serif;font-size:13.5px;letter-spacing:1px;color:rgba(245,241,234,.9);text-decoration:none;background:rgba(20,16,12,.45);padding:8px 16px;border-radius:999px;backdrop-filter:blur(6px);border:1px solid rgba(245,241,234,.25);z-index:5;">← Journal</a>
+    <div class="hero-inner">
+      <div class="hero-meta">Sep. 9, 2026 · 城市里的一小片绿</div>
+      <h1>保定植物园</h1>
+      <div class="hero-sub">
+        <span>河北 · 保定</span>
+        <span class="dot"></span>
+        <span>38.87° N, 115.46° E</span>
+        <span class="dot"></span>
+        <span>把脚步放慢到叶子的速度</span>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll ↓</div>
+  </header>
+
+  <div class="journal">
+    <!-- 序 -->
+    <div class="prologue reveal">
+      <div class="ornament">❋ ❋ ❋</div>
+      <p>旅行不一定都要去远地方的古寺和石窟。<br>
+      有时候，<br>
+      只是想在一座城市的绿里，<em>走慢一点</em>。</p>
+      <span class="hand">—— 保定，一个普通的下午</span>
+    </div>
+
+    <!-- 视频 -->
+    <div class="vlog-wrap reveal">
+      <video src="baoding.mp4" controls muted playsinline preload="metadata" poster="poster.jpg"></video>
+      <p class="photo-caption">四十秒，一段走得不着急的绿<span>·</span>the film</p>
+    </div>
+
+    <!-- ============ 上篇 · 绿 ============ -->
+    <div class="part-divider reveal">
+      <div class="cn">Green · in the city</div>
+      <div class="en">叶子不赶路 · 人也别赶</div>
+    </div>
+
+    <!-- 第一章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.01</span>
+        <h2 class="chapter-title">入口之后</h2>
+      </div>
+      <p>植物园的好处，是它不要求你"看懂"什么。没有碑文，没有讲解员，没有必须打卡的景点。你只需要走进去，让眼睛被绿色填满。</p>
+      <p>镜头里晃过的，是阔叶、是花境、是水面反上来的光。<em>这些都不重要，重要的是那四十秒里，没有人催你。</em></p>
+    </section>
+
+    <!-- 第二章 -->
+    <section class="chapter reveal">
+      <div class="chapter-head">
+        <span class="chapter-no">No.02</span>
+        <h2 class="chapter-title">叶子的时间</h2>
+      </div>
+      <p>在城市里待久了，会忘记植物是按另一种节奏活的。它们不赶地铁，不刷消息，一片叶子从卷到展，用的是一整个春天。</p>
+      <p>我举着手机走了一小圈，没怎么构图，也没怎么剪辑。<em>它本来就是散的、慢的、不急着讲完的——和旅行里那些宏大的遗迹相反，但同样值得记一笔。</em></p>
+      <div class="photo-card">
+        <div class="photo-frame">
+          <img src="poster.jpg" alt="保定植物园" loading="lazy">
+        </div>
+        <p class="photo-caption">视频的第一帧，也是这一篇的封面<span>·</span>the cover</p>
+        <div class="photo-note"><em>保定植物园</em>——华北平原上的一处城市绿肺。园中乔木、花境、水景交错，是周末把脚步放慢的好地方。</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 尾声 -->
+  <div class="epilogue reveal">
+    <p class="quote">古寺要人仰望，<br>植物园只请人坐下。<br>两种旅行，<br><strong>一种往外走，一种往里收。</strong></p>
+  </div>
+
+  <footer>
+    <div class="hand-sign">Jimmy Adams</div>
+    <div class="coords">BAODING BOTANICAL GARDEN · 38.87°N 115.46°E</div>
+    <p class="foot-note">Crafted with curiosity · <a href="https://jimmy-adams.github.io">jimmy-adams.github.io</a> · <a href="../xuankong/">上一篇：悬空寺 ←</a></p>
+    <div id="visit-count" class="visits"></div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+  <script src="/assets/stats.js" defer></script>
+</body>
+</html>
